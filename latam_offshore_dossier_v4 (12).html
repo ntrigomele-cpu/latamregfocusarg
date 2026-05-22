@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Offshore vs Regulated Platforms in Latin America — Master Dossier v4 (May 2026)</title>
+<style>
+:root {
+  --bg: #FAFAF7;
+  --bg-secondary: #F0EFE9;
+  --bg-tertiary: #E8E6DE;
+  --text-primary: #1A1915;
+  --text-secondary: #4A4842;
+  --text-tertiary: #7A7770;
+  --border: #D8D5CC;
+  --accent: #C15F3C;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 24px 16px 60px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 980px; margin: 0 auto; }
+h1, h2, h3, h4 { margin: 0; font-weight: 500; }
+p { margin: 0; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
+/* Header */
+.eyebrow { font-size: 11px; color: var(--text-tertiary); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 6px; }
+.title { font-size: 28px; line-height: 1.25; margin-bottom: 8px; }
+.subtitle { font-size: 14px; color: var(--text-secondary); }
+
+/* Cards */
+.card { background: white; border: 0.5px solid var(--border); border-radius: var(--radius-md); padding: 14px 16px; }
+.card-secondary { background: var(--bg-secondary); border-radius: var(--radius-md); padding: 14px 16px; }
+.card-hero { background: var(--bg-secondary); border-radius: var(--radius-lg); padding: 20px 24px; }
+
+.note-warning {
+  background: #FAEEDA;
+  border-left: 3px solid #BA7517;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 14px 16px;
+}
+.note-info {
+  background: #E8EFF8;
+  border-left: 3px solid #2C5E9B;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 14px 16px;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  border-bottom: 0.5px solid var(--border);
+  margin-bottom: 24px;
+  padding-bottom: 0;
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 10;
+  padding-top: 8px;
+}
+.tab-btn {
+  background: transparent;
+  border: none;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  font-family: inherit;
+  transition: color 0.15s;
+}
+.tab-btn:hover { color: var(--text-primary); }
+.tab-btn.active {
+  color: var(--text-primary);
+  font-weight: 500;
+  border-bottom-color: var(--text-primary);
+}
+
+/* Layout helpers */
+.section-label { font-size: 12px; color: var(--text-tertiary); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 10px; }
+.section + .section-label { margin-top: 28px; }
+
+.grid { display: grid; gap: 10px; }
+.grid-auto-150 { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.grid-auto-170 { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+.grid-auto-200 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.grid-1 { grid-template-columns: 1fr; gap: 8px; }
+.grid-2 { grid-template-columns: 1fr 1fr; gap: 10px; }
+@media (max-width: 640px) {
+  .grid-2 { grid-template-columns: 1fr; }
+}
+
+/* Pillar cards (colored) */
+.pillar { border-radius: var(--radius-md); padding: 12px; }
+.pillar-title { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
+.pillar-body { font-size: 12px; line-height: 1.45; }
+.pillar.purple { background: #EEEDFE; } .pillar.purple .pillar-title { color: #3C3489; } .pillar.purple .pillar-body { color: #534AB7; }
+.pillar.green  { background: #E1F5EE; } .pillar.green  .pillar-title { color: #085041; } .pillar.green  .pillar-body { color: #0F6E56; }
+.pillar.orange { background: #FAECE7; } .pillar.orange .pillar-title { color: #712B13; } .pillar.orange .pillar-body { color: #993C1D; }
+.pillar.pink   { background: #FBEAF0; } .pillar.pink   .pillar-title { color: #72243E; } .pillar.pink   .pillar-body { color: #993556; }
+.pillar.amber  { background: #FAEEDA; } .pillar.amber  .pillar-title { color: #633806; } .pillar.amber  .pillar-body { color: #854F0B; }
+
+/* Player row */
+.player-row {
+  display: grid;
+  grid-template-columns: 110px 1fr 88px;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 12px;
+  background: white;
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-md);
+}
+.player-row .name { font-size: 13px; font-weight: 500; }
+.player-row .desc { font-size: 12px; color: var(--text-secondary); line-height: 1.45; }
+.tag {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 8px;
+  text-align: center;
+  justify-self: end;
+  white-space: nowrap;
+}
+.tag-reg { color: #085041; background: #E1F5EE; }
+.tag-off { color: #791F1F; background: #FCEBEB; }
+.tag-fx  { color: #633806; background: #FAEEDA; }
+
+/* Registry cells */
+.reg-cell {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #E1F5EE;
+  border-radius: var(--radius-md);
+}
+.reg-cell .name { font-size: 12px; color: #085041; font-weight: 500; }
+.reg-cell .desc { font-size: 11px; color: #0F6E56; }
+
+.off-cell {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #FCEBEB;
+  border-radius: var(--radius-md);
+}
+.off-cell .name { font-size: 12px; color: #791F1F; font-weight: 500; }
+.off-cell .desc { font-size: 11px; color: #A32D2D; }
+
+/* Timeline */
+.timeline { position: relative; padding-left: 22px; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: var(--border);
+}
+.tl-item { position: relative; margin-bottom: 16px; }
+.tl-dot {
+  position: absolute;
+  left: -21px;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--bg);
+}
+.tl-date { font-size: 11px; color: var(--text-tertiary); margin-bottom: 2px; }
+.tl-title { font-size: 13px; font-weight: 500; margin-bottom: 2px; }
+.tl-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.45; }
+
+.dot-grey { background: #888780; }
+.dot-green { background: #1D9E75; }
+.dot-purple { background: #534AB7; }
+.dot-orange { background: #D85A30; }
+.dot-pink { background: #D4537E; }
+.dot-blue { background: #3C3489; }
+
+/* Inset paragraph (insight) */
+.insight {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  font-size: 13px;
+  line-height: 1.55;
+}
+.insight strong { font-weight: 500; }
+
+/* Stat box */
+.stat-box {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  padding: 12px;
+}
+.stat-label { font-size: 11px; color: var(--text-tertiary); margin-bottom: 2px; }
+.stat-value { font-size: 18px; font-weight: 500; }
+.stat-detail { font-size: 11px; color: var(--text-secondary); margin-top: 2px; }
+
+/* Footer prompts */
+.prompts {
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 0.5px solid var(--border);
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+.section { display: none; }
+.section.active { display: block; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.toc-card {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  margin-bottom: 24px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+.toc-card strong { color: var(--text-primary); font-weight: 500; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header style="margin-bottom: 18px;">
+  <p class="eyebrow">Master dossier · v4 · May 2026</p>
+  <h1 class="title">Offshore vs regulated platforms in Latin America</h1>
+  <p class="subtitle">Argentina CNV PSAV registry as ground truth · Five deep cases · Status as of May 2026</p>
+</header>
+
+<!-- Disclaimer at the top -->
+<section class="note-info" style="margin-bottom: 18px;">
+  <p style="font-size: 12px; font-weight: 500; color: #1F3D6B; margin-bottom: 4px;">Scope of this analysis</p>
+  <p style="font-size: 12px; color: #2C5E9B; line-height: 1.6;"><strong>Geography:</strong> LatAm broadly. Argentina (CNV PSAV registry) and Brazil (BCB framework, effective Feb 2026) are the regulatory anchors. MX, CO, CL, PE referenced where relevant. · <strong>Included:</strong> International and cross-border platforms — crypto exchanges, FX/CFD brokers, payment platforms — whose strategic question is whether to formalize locally. · <strong>Excluded:</strong> Fully local compliance-first players (Lemon, Ripio, Belo, SatoshiTango) — they already answered the registration question. · <strong>Regulatory note:</strong> CNV PSAV covers crypto VASPs only. FX/CFD brokers (Exness, XM, FBS) fall under a different regulatory framework and are included for strategic comparison only.</p>
+</section>
+
+
+<!-- TABS -->
+<nav class="tabs" role="tablist">
+  <button data-tab="overview" class="tab-btn active" role="tab">Overview</button>
+  <button data-tab="mexc" class="tab-btn" role="tab">MEXC <span style="font-size:10px;opacity:0.6">(offshore)</span></button>
+  <button data-tab="bingx" class="tab-btn" role="tab">BingX <span style="font-size:10px;opacity:0.6">(offshore)</span></button>
+  <button data-tab="exness" class="tab-btn" role="tab">Exness <span style="font-size:10px;opacity:0.6">(offshore)</span></button>
+  <button data-tab="binance" class="tab-btn" role="tab">Binance <span style="font-size:10px;opacity:0.6">(registered)</span></button>
+  <button data-tab="bitget" class="tab-btn" role="tab">Bitget <span style="font-size:10px;opacity:0.6">(registered)</span></button>
+  <button data-tab="bybit" class="tab-btn" role="tab">Bybit <span style="font-size:10px;opacity:0.6">(registered)</span></button>
+  <button data-tab="nexo" class="tab-btn" role="tab">Nexo <span style="font-size:10px;opacity:0.6">(registered via acquisition)</span></button>
+  <button data-tab="kraken" class="tab-btn" role="tab">Kraken <span style="font-size:10px;opacity:0.6">(re-entering, registered)</span></button>
+  <button data-tab="whitebit" class="tab-btn" role="tab">WhiteBIT <span style="font-size:10px;opacity:0.6">(registered)</span></button>
+</nav>
+
+<!-- ============ OVERVIEW ============ -->
+<section data-section="overview" class="section active" role="tabpanel">
+
+  <div class="card-hero" style="margin-bottom: 24px;">
+    <p class="eyebrow">Central insight</p>
+    <p style="font-size: 18px; font-weight: 500; margin-bottom: 6px;">Argentina's PSAV registry already split the market in two</p>
+    <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.55;">Argentina's CNV PSAV registry is the primary ground truth for this analysis — the most developed crypto registration framework in LatAm and the clearest dividing line between registered and offshore players. Marketing budgets, sponsorships and country managers don't change which side a player sits on. The list does.</p>
+  </div>
+
+  <!-- Regulated vs Offshore quick view -->
+  <p class="section-label">Regulated vs offshore — quick view</p>
+  <div class="grid grid-2" style="margin-bottom: 28px;">
+
+    <div class="card" style="border-left: 3px solid #1D9E75;">
+      <p style="font-size: 13px; font-weight: 500; color: #085041; margin-bottom: 8px;">Regulated international players (in the club)</p>
+      <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.55; margin-bottom: 10px;">Formally registered with Argentina's CNV PSAV registry. Treat regulation as a durable competitive moat, not friction.</p>
+      <p style="font-size: 11px; color: #085041; line-height: 1.6;"><strong style="font-weight:500;">Tier 1 — Global giants:</strong> Binance, OKX, Coinbase, Kraken, Crypto.com<br><strong style="font-weight:500;">Tier 2 — Top-Asian + Tier-2 global:</strong> Bitget, Bybit (Luzpay S.A.), Bit2Me, Nubank<br><strong style="font-weight:500;">Tier 3 — Mid-size with regulatory thesis:</strong> WhiteBIT<br><strong style="font-weight:500;">Tier 4 — LatAm-built champions:</strong> TruBit, Airtm, CryptoMKT, Koywe<br><strong style="font-weight:500;">Tier 5 — Niche payments/custody:</strong> Nebeus, DolarApp, Vita, Zero Hash, Telcoin, Koibanx, Prosegur, YouHodler, RedotPay</p>
+    </div>
+
+    <div class="card" style="border-left: 3px solid #C15F3C;">
+      <p style="font-size: 13px; font-weight: 500; color: #791F1F; margin-bottom: 8px;">Offshore international players (outside)</p>
+      <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.55; margin-bottom: 10px;">Operate cross-border from Seychelles, Cyprus, BVI, or Curaçao. UX is localized (rails, language, support) but no formal license in the country. Compete on speed, breadth and marketing — not paper trail.</p>
+      <p style="font-size: 11px; color: #791F1F; line-height: 1.6;"><strong style="font-weight:500;">Top crypto exchanges:</strong> MEXC, BingX, KuCoin, HTX, Gate.io<br><strong style="font-weight:500;">FX/CFD brokers (outside crypto scope):</strong> Exness, XM, FBS, Octa, IC Markets, Pepperstone, Vantage, Deriv<br><br><strong style="font-weight:500;">Notable:</strong> BingX has the deepest Argentine community footprint of the offshore group — @BingXLatino since 2020, ONG Bitcoin Argentina partner, Chelsea + Ferrari + Enzo Fernández sports stack. All of it without a PSAV.</p>
+    </div>
+
+  </div>
+
+  <!-- Argentina CNV PSAV registry -->
+  <p class="section-label">Argentina CNV PSAV registry — the ground truth</p>
+
+  <div style="background: #E8EFF8; border: 0.5px solid #A8C0E0; border-radius: var(--radius-md); padding: 10px 14px; margin-bottom: 14px; display: flex; align-items: center; gap: 10px;">
+    <span style="font-size: 12px; color: #1F3D6B;">Official CNV registry of registered Virtual Asset Service Providers in Argentina:</span>
+    <a href="https://www.cnv.gov.ar/SitioWeb/ProveedoresServiciosActivosVirtuales/RegistrosPSAV" target="_blank" rel="noopener" style="font-size: 12px; font-weight: 500; color: #2C5E9B; white-space: nowrap;">CNV PSAV Registry ↗</a>
+  </div>
+
+  <p style="font-size: 13px; font-weight: 500; color: #085041; margin-bottom: 8px;">Registered global exchanges</p>
+  <div class="grid grid-1" style="margin-bottom: 12px;">
+    <div class="reg-cell"><span class="name">Binance</span><span class="desc">Binance Services Latinoamérica</span></div>
+    <div class="reg-cell"><span class="name">OKX</span><span class="desc">Sucursal Argentina · Seychelles HQ</span></div>
+    <div class="reg-cell"><span class="name">Bitso</span><span class="desc">The Badger Technology · MX origin</span></div>
+    <div class="reg-cell"><span class="name">Coinbase</span><span class="desc">Coinbase Bermuda Services</span></div>
+    <div class="reg-cell"><span class="name">Kraken</span><span class="desc">Payward Trading Ltd.</span></div>
+    <div class="reg-cell"><span class="name">Bit2Me</span><span class="desc">B2M Argentina · Spain origin</span></div>
+    <div class="reg-cell"><span class="name">Crypto.com</span><span class="desc">PSAV CNV registered · Singapore HQ</span></div>
+    <div class="reg-cell"><span class="name">Bitget</span><span class="desc">BTGT Innovación · Seychelles HQ</span></div>
+    <div class="reg-cell"><span class="name">Bybit</span><span class="desc">Luzpay S.A. · PSAV + card operator · Aug 2024</span></div>
+    <div class="reg-cell"><span class="name">WhiteBIT</span><span class="desc">PSAV CNV Nov 2025</span></div>
+    <div class="reg-cell"><span class="name">Nubank</span><span class="desc">Nu Global Argentina · BR origin</span></div>
+    <div class="reg-cell"><span class="name">Nexo</span><span class="desc">Via Buenbit acquisition (CNV-registered) · Dec 2025 · customers migrated</span></div>
+  </div>
+
+  <p style="font-size: 13px; font-weight: 500; color: #085041; margin: 16px 0 8px;">Registered regional / payment platforms</p>
+  <div class="grid grid-1" style="margin-bottom: 12px;">
+    <div class="reg-cell"><span class="name">TruBit</span><span class="desc">Galactic Holdings · $150M+ daily LatAm volume</span></div>
+    <div class="reg-cell"><span class="name">Airtm</span><span class="desc">AirConnect LLC · US</span></div>
+    <div class="reg-cell"><span class="name">CryptoMKT</span><span class="desc">CL origin · LatAm</span></div>
+    <div class="reg-cell"><span class="name">Koywe</span><span class="desc">Alerce Argentina · CL origin</span></div>
+    <div class="reg-cell"><span class="name">RedotPay</span><span class="desc">RedotX Tango · HK</span></div>
+    <div class="reg-cell"><span class="name">YouHodler</span><span class="desc">CH/EU</span></div>
+    <div class="reg-cell"><span class="name">Niche: Nebeus, DolarApp, Vita, Zero Hash, Telcoin, Koibanx, Prosegur</span><span class="desc">Payments / custody / B2B infrastructure</span></div>
+  </div>
+
+  <p style="font-size: 13px; font-weight: 500; color: #791F1F; margin: 16px 0 8px;">Unregistered — operating offshore in Argentina</p>
+  <div class="grid grid-1" style="margin-bottom: 24px;">
+    <div class="off-cell"><span class="name">MEXC</span><span class="desc">No CNV registration despite LABITCONF sponsorship</span></div>
+    <div class="off-cell"><span class="name">BingX</span><span class="desc">No CNV registration. Deepest community roots of any offshore exchange. Chelsea + Ferrari + Enzo Fernández.</span></div>
+    <div class="off-cell"><span class="name">KuCoin</span><span class="desc">No CNV registration. Post-DOJ settlement.</span></div>
+    <div class="off-cell"><span class="name">HTX, Gate.io</span><span class="desc">No CNV registration</span></div>
+    <div class="off-cell"><span class="name">Exness, XM, FBS, Octa, Vantage, Deriv</span><span class="desc">FX/CFD brokers — outside CNV crypto PSAV scope (different regulatory question)</span></div>
+  </div>
+
+  <!-- Player comparison -->
+  <p class="section-label">Player comparison · international platforms only</p>
+  <div class="grid grid-1" style="margin-bottom: 24px;">
+    <div class="player-row">
+      <span class="name">Binance</span>
+      <span class="desc">PSAV AR (#20 global milestone, Sep 2024). Mastercard card relaunched Feb 2025. Binance Pay + PIX — first crypto exchange integrated with a national payment system globally (Dec 2025). Dedicated LatAm GM + VP, both in market since 2022.</span>
+      <span class="tag tag-reg">Regulated</span>
+    </div>
+    <div class="player-row">
+      <span class="name">Bitget</span>
+      <span class="desc">PSAV AR (BTGT Innovación). First-ever Country Manager for any country: Carolina Gama (ex-Binance LatAm, ex-AstroPay). LALIGA Official Crypto Partner. +68% AR users 2024. BGB token +900% 2024. Forlán activation at LABITCONF 2025.</span>
+      <span class="tag tag-reg">Regulated</span>
+    </div>
+    <div class="player-row">
+      <span class="name">Bybit</span>
+      <span class="desc">PSAV AR via Luzpay S.A. (card operator + PSAV, Aug 2024 — before any CM). CM Patricio Mesri (Spanish LatAm, May 2025). Devconnect Regulation Day 2025 panels alongside Bitso + Belo. Tether partnership. #2 global by volume.</span>
+      <span class="tag tag-reg">Regulated</span>
+    </div>
+    <div class="player-row">
+      <span class="name">Nexo</span>
+      <span class="desc">Acquired Buenbit (CNV-registered, 1M+ users, $2B+ vol) Dec 2025. Customers migrated. Buenos Aires as LatAm HQ. AFA Official Partner Apr 2026. Lending + yield — no direct local competition in that product layer. $11B AUM, #2 centralized lender globally.</span>
+      <span class="tag tag-reg">Regulated</span>
+    </div>
+    <div class="player-row">
+      <span class="name">Kraken</span>
+      <span class="desc">PSAV AR mid-2025. ARS rails via PayAmigo (local partner). Krak app: payments + stablecoin yield + 300+ assets in 110+ countries. Tokenized equities for non-US users. Failed 2022 "served from HQ" attempt — rebuilt from scratch with local rails + registration. IPO S-1 filed.</span>
+      <span class="tag tag-reg">Regulated</span>
+    </div>
+    <div class="player-row">
+      <span class="name">OKX</span>
+      <span class="desc">PSAV AR (sucursal Argentina). SPEI MX + PSE CO (Apr 2026). BR card. MiCA Malta. Expanding payment integrations per market.</span>
+      <span class="tag tag-reg">Regulated</span>
+    </div>
+    <div class="player-row">
+      <span class="name">WhiteBIT</span>
+      <span class="desc">PSAV AR Nov 2025. Global legitimacy project: UK, US, MiCA Croatia/Italy, Kazakhstan, Turkey, Australia. FC Barcelona to 2030 + Juventus sleeve. WBT token triple-digit 2025. Unresolved pro-Russian ownership allegations.</span>
+      <span class="tag tag-reg">Regulated</span>
+    </div>
+    <div class="player-row">
+      <span class="name">TruBit</span>
+      <span class="desc">$150M+ daily LatAm volume. PSAV AR. MX/BR integrations. Compliance-first LatAm regional champion. Series A backed by Galaxy.</span>
+      <span class="tag tag-reg">Regulated</span>
+    </div>
+    <div class="player-row">
+      <span class="name">MEXC</span>
+      <span class="desc">No PSAV AR. PIX/SPEI/PSE/QR rails + P2P in 5 currencies. Zero-fee wedge. LABITCONF BITCOIN sponsor while Bitget operated registered in the same venue. Top-5 global by volume — most exposed offshore player.</span>
+      <span class="tag tag-off">Offshore</span>
+    </div>
+    <div class="player-row">
+      <span class="name">BingX</span>
+      <span class="desc">No PSAV AR. @BingXLatino since Jun 2020 — longest-running Spanish crypto handle. Chelsea FC principal partner. Scuderia Ferrari HP F1 partner (Jan 2026). Enzo Fernández first individual Global Ambassador (May 2026). Most visited stand LABITCONF 2024. ONG Bitcoin Argentina partner. Deepest community roots of any offshore exchange.</span>
+      <span class="tag tag-off">Offshore</span>
+    </div>
+    <div class="player-row">
+      <span class="name">KuCoin</span>
+      <span class="desc">No PSAV AR. Post-$300M DOJ settlement (Jan 2025). Using LatAm as US replacement market. No visible local team or registrations in Argentina.</span>
+      <span class="tag tag-off">Offshore</span>
+    </div>
+    <div class="player-row">
+      <span class="name">Exness</span>
+      <span class="desc">FX/CFD broker — outside CNV crypto PSAV scope. LALIGA LatAm partner. CPA engine up to $750/user. Team Pro finfluencers in AR + CO. "Best Broker LATAM" iFX Expo 2025. Incumbent defender, not a conquering force.</span>
+      <span class="tag tag-fx">FX broker</span>
+    </div>
+  </div>
+
+  <p class="section-label">What the list reveals</p>
+  <div class="grid grid-1">
+    <div class="insight">
+      <strong>1 · More exchanges registered than expected.</strong> 9 global exchanges + 7+ regional/payment platforms in Argentina's PSAV registry. The "nobody registers in LatAm" narrative was false. Regulatory pressure is working — Argentina built a viable framework that incumbents adopted.
+    </div>
+    <div class="insight">
+      <strong>2 · The missing players are the ones spending most on marketing.</strong> MEXC and BingX collectively have the largest marketing footprints of any offshore exchange in Argentina — MEXC tops local crypto conference sponsorships, BingX has Chelsea + Ferrari + Enzo Fernández + the most visited stand at the country's flagship blockchain event + provincial grassroots activations via ONG Bitcoin Argentina. Neither is registered. Meanwhile Bitget and Bybit — both registered — spend less visibly on marketing. Marketing budget ≠ compliance posture. They're orthogonal decisions, and the BingX case is the starkest proof: the deepest community investment in Argentina, zero PSAV.
+    </div>
+    <div class="insight">
+      <strong>3 · Bybit registered quietly, through a local entity.</strong> Luzpay S.A. is the Argentine legal vehicle through which Bybit operates as a registered PSAV and card operator since August 2024. The parallel narrative of "Bybit chose not to register" was wrong — they registered before even appointing a regional CM.
+    </div>
+  </div>
+
+  <!-- The regulated club summary -->
+  <p class="section-label" style="margin-top: 28px;">The critical reordering</p>
+  <div class="card-secondary">
+    <p style="font-size: 13px; margin-bottom: 10px;"><strong style="font-weight:500;">The real "international + regulated at scale" club in Argentina is:</strong></p>
+    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">• <strong style="font-weight:500;">Binance + OKX</strong> — licensed giants<br>• <strong style="font-weight:500;">Bitget</strong> — top-5 global with license, CM, and LALIGA<br>• <strong style="font-weight:500;">Bybit</strong> — #2 global, registered via Luzpay S.A., PSAV + card operator<br>• <strong style="font-weight:500;">Coinbase + Kraken</strong> — US tier-1 with formal presence<br>• <strong style="font-weight:500;">Crypto.com</strong> — Singapore-based, PSAV registered<br>• <strong style="font-weight:500;">WhiteBIT</strong> — global regulatory bet<br>• <strong style="font-weight:500;">Bit2Me</strong> — European MiCA + AR PSAV<br>• <strong style="font-weight:500;">Nexo</strong> — acquired Buenbit (CNV-registered, 1M+ users), BA as LatAm hub</p>
+    <p style="font-size: 13px; margin-top: 10px;">That's <strong style="font-weight:500;">10 highly differentiated international players</strong> — the real league fighting for share in Argentina. MEXC, BingX, and KuCoin fight in a parallel league: more volume, more marketing, no paper trail.</p>
+  </div>
+
+  <!-- Cross-case findings -->
+  <p class="section-label" style="margin-top: 28px;">Four ways to enter Argentina — what the nine cases reveal</p>
+  <div class="grid grid-1" style="margin-bottom: 24px;">
+    <div class="card" style="border-left: 3px solid #1D9E75;"><p style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">Archetype 1 · Direct registration of the global entity</p><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">The global parent (or its named LatAm subsidiary) registers directly with the CNV. Used by <strong style="font-weight:500;">Binance</strong> (Binance Services Latinoamérica), <strong style="font-weight:500;">OKX</strong> (Sucursal Argentina), <strong style="font-weight:500;">Coinbase</strong> (Bermuda Services), <strong style="font-weight:500;">Kraken</strong> (Payward Trading), <strong style="font-weight:500;">Bitget</strong> (BTGT Innovación), and <strong style="font-weight:500;">WhiteBIT</strong>. Cleanest paper trail, highest reputational return. Standard play for established global brands with clean compliance posture.</p></div>
+    <div class="card" style="border-left: 3px solid #1D9E75;"><p style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">Archetype 2 · Registration through a dedicated local SPV</p><p style="font-weight: 500; font-size: 12px; color: var(--text-secondary); line-height: 1.5;"><strong style="font-weight:500;">Bybit's Luzpay S.A. is the textbook example.</strong> Create a clean Argentine corporate entity that operates locally, holds the PSAV registration, and ring-fences the parent from new disclosure obligations and audit triggers. Allows a player with a heavier global litigation profile to participate in the regulated club without exposing the global brand to additional jurisdictional risk. The most replicable play for players who can't or won't register their global entity directly.</p></div>
+    <div class="card" style="border-left: 3px solid #1D9E75;"><p style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">Archetype 3 · Acquisition of a locally registered platform</p><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;"><strong style="font-weight:500;">Nexo's Buenbit acquisition is the only confirmed case</strong>, but the playbook is now public. Skip the registration timeline entirely by buying an already-compliant local entity. Bonus: gain users, local team, brand, and CUIT-verified KYC base in one move. Most expensive route, but also the fastest. Requires a willing seller — Buenbit had reached scale (1M+ users) but needed a global product layer they couldn't build themselves.</p></div>
+    <div class="card" style="border-left: 3px solid #C15F3C;"><p style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">Archetype 4 · No registration, ride the offshore wave</p><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">Used by <strong style="font-weight:500;">MEXC</strong>, <strong style="font-weight:500;">BingX</strong>, <strong style="font-weight:500;">KuCoin</strong>, <strong style="font-weight:500;">HTX</strong>, <strong style="font-weight:500;">Gate.io</strong>. Operate cross-border from offshore jurisdictions, localize the UX, invest heavily in marketing and KOLs, and bet that enforcement will remain selective. <strong style="font-weight:500;">BingX is the extreme case</strong>: deepest Argentine community roots, most visited LABITCONF stand, most ambitious sports portfolio (Chelsea + Ferrari + Enzo Fernández) — all without a PSAV. <strong style="font-weight:500;">Kraken's 2022–24 history</strong> is the cautionary tale for what this approach quietly costs when enforcement eventually arrives.</p></div>
+  </div>
+
+  <p class="section-label" style="margin-top: 28px;">Six recurring findings across the nine cases</p>
+  <div class="grid grid-1" style="margin-bottom: 24px;">
+    <div class="insight">
+      <strong>1 · Local rails matter more than local marketing.</strong> The single biggest functional gap between regulated and unregistered players isn't sponsorship spend — it's whether ARS deposits actually work via local payment partners. Bitget, Bybit (via Luzpay), Binance and Kraken all built local rails before scaling marketing. MEXC sponsors LABITCONF but Argentine users still rely on P2P workarounds. Marketing without rails is friction theater.
+    </div>
+    <div class="insight">
+      <strong>2 · The sequence "compliance → product → marketing" works. The reverse doesn't.</strong> Bitget started in 2022 (Messi), added compliance in 2024 (PSAV), scaled marketing in 2025 (LALIGA, Forlán). Bybit registered in August 2024 before appointing any CM. Binance registered in September 2024, then relaunched the Mastercard card in February 2025. MEXC inverted this — heavy marketing first, no compliance — and now faces structural exposure. The correct sequence is boring and slow; the wrong sequence looks fast and ages badly.
+    </div>
+    <div class="insight">
+      <strong>3 · Differentiated product wedges separate winners from incumbents.</strong> Binance's Pay+PIX integration. Kraken's Krak app and tokenized equities. Nexo's lending and yield products. Each picks a category that local champions (Lemon, Ripio, Belo, SatoshiTango) don't seriously compete in. Bitget and Bybit, by contrast, compete head-on with local players on spot trading and futures — which is harder, more expensive, and limits ceiling. The lesson: identify what locals can't do, then own that lane.
+    </div>
+    <div class="insight">
+      <strong>4 · Brand rehabilitation works better in LatAm than in the US or EU.</strong> Nexo used Argentina as the flagship of its post-SEC-settlement comeback. Binance used Argentina as proof that Mastercard would re-engage after the 2023 card cancellations. Kraken used it as proof that the post-FTX-cost-cutting company could still execute on global expansion. LatAm regulators are demanding but not punitive — which makes Argentina an attractive first stop for rebuild narratives that wouldn't fly in stricter jurisdictions.
+    </div>
+    <div class="insight">
+      <strong>5 · "Available globally from HQ" is not a market strategy.</strong> Kraken proved this the hard way between 2022 and 2024. Coinbase reached the same conclusion and announced a temporary exit from Argentina in January 2026 — less than a year after launching peso trading. The "we serve every country from the same platform" thesis collapses at the first encounter with capital controls, local payment infrastructure, or local language support. Every player still operating this way will eventually be forced into Kraken's correction or Coinbase's retreat.
+    </div>
+    <div class="insight">
+      <strong>6 · The IPO calendar is the ultimate forcing function.</strong> Kraken filed an S-1 and immediately had to convert "available there in theory" into "registered there in practice" for LatAm. Bitget is widely expected to follow. Public-market scrutiny doesn't tolerate loose geographic claims — every market a player names becomes a market they have to prove. For private competitors (MEXC, KuCoin) the lack of public scrutiny is a temporary advantage that disappears the moment they need outside capital or M&amp;A optionality.
+    </div>
+  </div>
+
+  <p class="section-label" style="margin-top: 28px;">What predicts success in Argentina (in order of weight)</p>
+  <div class="card-secondary">
+    <p style="font-size: 13px; line-height: 1.6; margin-bottom: 8px;"><strong style="font-weight: 500;">Across the nine cases analyzed, success correlates most strongly with:</strong></p>
+    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 4px;"><strong style="font-weight:500;">1.</strong> A functioning local payment rail partner (single biggest predictor)</p>
+    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 4px;"><strong style="font-weight:500;">2.</strong> A CNV PSAV registration or equivalent regulatory standing</p>
+    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 4px;"><strong style="font-weight:500;">3.</strong> A differentiated product wedge that local players don't seriously compete in</p>
+    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 4px;"><strong style="font-weight:500;">4.</strong> A dedicated regional or country lead with local market context</p>
+    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;"><strong style="font-weight:500;">5.</strong> Marketing and sponsorship spend</p>
+    <p style="font-size: 13px; line-height: 1.6; margin-top: 10px;">Note that <strong style="font-weight: 500;">marketing comes last</strong>. Every player who inverted this order — marketing first, the rest later — is currently either rebuilding (Kraken), exiting (Coinbase), or structurally exposed (MEXC). Every player who respected the order is in the regulated club.</p>
+  </div>
+
+</section>
+
+<!-- ============ MEXC ============ -->
+<section data-section="mexc" class="section" role="tabpanel">
+
+  <div class="card-hero" style="margin-bottom: 24px;">
+    <p class="eyebrow">MEXC · North star</p>
+    <p style="font-size: 17px; font-weight: 500; margin-bottom: 6px;">Heavy marketing, zero compliance — the most exposed top-10 approach</p>
+    <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.55;">Seen against the PSAV registry, MEXC is the most exposed top-5. Not just a late entrant — the only top-5 global that didn't even attempt Bitget's license + CM play. Sponsored LABITCONF in Buenos Aires while Bitget operated registered in the same country. Six months from Brazil's authorization deadline, that gap is starting to feel structural.</p>
+  </div>
+
+  <p class="section-label">Pillars</p>
+  <div class="grid grid-auto-170" style="margin-bottom: 24px;">
+    <div class="pillar purple"><p class="pillar-title">Local rails</p><p class="pillar-body">PIX, SPEI, PSE, QR, bank. Spot MXN/COP/ARS.</p></div>
+    <div class="pillar green"><p class="pillar-title">P2P</p><p class="pillar-body">BRL, ARS, COP, MXN, VES. Zero-fee.</p></div>
+    <div class="pillar orange"><p class="pillar-title">Events</p><p class="pillar-body">LABITCONF, BCH Brasil, Bolivia BW.</p></div>
+    <div class="pillar pink"><p class="pillar-title">KOL + community</p><p class="pillar-body">Yachts, closing parties.</p></div>
+    <div class="pillar amber"><p class="pillar-title">Education</p><p class="pillar-body">Academy ES, "0 fee" campaign.</p></div>
+  </div>
+
+  <p class="section-label">Timeline 2025–2026</p>
+  <div class="timeline" style="margin-bottom: 24px;">
+    <div class="tl-item"><div class="tl-dot dot-green"></div><p class="tl-date">Mar 17, 2025</p><p class="tl-title">P2P opens for 5 LatAm currencies</p></div>
+    <div class="tl-item"><div class="tl-dot dot-green"></div><p class="tl-date">Jun 20–21</p><p class="tl-title">Peru Blockchain Conference debut</p></div>
+    <div class="tl-item"><div class="tl-dot dot-purple"></div><p class="tl-date">Jul 16</p><p class="tl-title">PIX in/out live</p></div>
+    <div class="tl-item"><div class="tl-dot dot-orange"></div><p class="tl-date">Aug 21–22</p><p class="tl-title">Cripto Latin Fest Medellín · 6,000+ attendees</p></div>
+    <div class="tl-item"><div class="tl-dot dot-orange"></div><p class="tl-date">Oct 24–25</p><p class="tl-title">Bolivia Blockchain Week · LATAM Blockchain Award</p></div>
+    <div class="tl-item"><div class="tl-dot dot-pink"></div><p class="tl-date">Nov 7–8</p><p class="tl-title">LABITCONF BA · BITCOIN sponsor</p><p class="tl-desc">Argentina named LatAm hub — but no PSAV.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-pink"></div><p class="tl-date">Dec 4</p><p class="tl-title">Blockchain Conference Brasil · Whale tier</p></div>
+    <div class="tl-item"><div class="tl-dot dot-blue"></div><p class="tl-date">Jan 14–20, 2026</p><p class="tl-title">Local rails live in 5 markets + MXN/COP/ARS spot</p></div>
+    <div class="tl-item"><div class="tl-dot dot-blue"></div><p class="tl-date">Feb 2 — May 2026 (now)</p><p class="tl-title">Brazil BCB framework active, MEXC has not filed</p><p class="tl-desc">Six months left until October 30 deadline.</p></div>
+  </div>
+
+  <p class="section-label">Pattern reading (May 2026)</p>
+  <div class="grid grid-1">
+    <div class="insight"><strong>1 · Brand → product sequencing skipped compliance.</strong> Bitget did brand + product + compliance. MEXC did brand + product only.</div>
+    <div class="insight"><strong>2 · Argentina = narrative wedge, not strategic.</strong> They talk about AR as the "LatAm hub 2026" but didn't register with CNV — while 9 competitors did. The narrative is marketing.</div>
+    <div class="insight"><strong>3 · Zero-fee is the wedge — and the constraint.</strong> They can't license without assuming minimum capital, reporting, audits. That eats margin directly — against the zero-fee model.</div>
+    <div class="insight"><strong>4 · Brazil clock is ticking.</strong> Brazil is ~⅓ of LatAm crypto value. With BCB monitoring active May 4 and authorization filings due Oct 30, MEXC has two paths: file (cost structure breaks) or accept Brazil exit / grey-zone operation.</div>
+    <div class="insight"><strong>5 · Self-reported metrics.</strong> +82% signups, +159% active traders, +68% futures YoY. Not audited. Treat as directional.</div>
+  </div>
+
+</section>
+
+<!-- ============ EXNESS ============ -->
+<section data-section="exness" class="section" role="tabpanel">
+
+  <div class="card-hero" style="margin-bottom: 18px;">
+    <p class="eyebrow">Exness · Why include a non-crypto player</p>
+    <p style="font-size: 17px; font-weight: 500; margin-bottom: 6px;">FX/CFD broker — different regulatory question, same offshore playbook</p>
+    <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.55;">Exness is not a crypto exchange and does not appear in Argentina's CNV PSAV registry — which only governs Virtual Asset Service Providers. It is a multi-asset broker (Forex, CFDs including crypto CFDs, but not spot crypto), operating under FCA, CySEC, FSA Seychelles, Curaçao and BVI licenses. It is structurally offshore in every LatAm country.</p>
+  </div>
+
+  <div class="note-info" style="margin-bottom: 24px;">
+    <p style="font-size: 12px; font-weight: 500; color: #1F3D6B; margin-bottom: 6px;">Why this player matters for the LatAm offshore analysis</p>
+    <p style="font-size: 12px; color: #2C5E9B; line-height: 1.6;"><strong>The argument for inclusion:</strong> Exness is the canonical example of how an unregulated international player operates a high-volume retail business in Latin America without ever becoming local. Its playbook (sport sponsorships, finfluencers, CPA affiliate engines, localized rails) is the template that crypto exchanges like MEXC are now copying — but in a regulatory environment far less forgiving than forex. Reading Exness clarifies what crypto offshore is borrowing from FX, and where it diverges.</p>
+    <p style="font-size: 12px; color: #2C5E9B; line-height: 1.6; margin-top: 6px;"><strong>The argument for caution:</strong> Exness is not registered as an ALyC (Liquidation and Compensation Agent) with CNV. It accepts Argentine users under its global licenses, operating directly through the internet under the laws of jurisdictions where it is registered (Curaçao, BVI). Clients are protected by Exness's own compensation funds — not local investor protection regimes. The same logic applies in Brazil, Mexico, Chile and Colombia: clients are governed by offshore jurisdictions, not local law.</p>
+    <p style="font-size: 12px; color: #2C5E9B; line-height: 1.6; margin-top: 6px;"><strong>Time horizon:</strong> Forex CFD regulation in LatAm remains a grey zone in most countries. No equivalent to Brazil's BCB PSAV exists for retail FX brokers. That gives Exness more time than crypto exchanges — but the playbook is the same, and watching what regulators do about FX next will preview what happens to crypto.</p>
+  </div>
+
+  <p class="section-label">Pillars</p>
+  <div class="grid grid-auto-170" style="margin-bottom: 24px;">
+    <div class="pillar purple"><p class="pillar-title">Sport &amp; celebrity</p><p class="pillar-body">LALIGA partner LatAm, Rafa Márquez, Diego Forlán.</p></div>
+    <div class="pillar green"><p class="pillar-title">Finfluencers</p><p class="pillar-body">Team Pro: Palacios, Nardelli (AR), De Salcedo (CO).</p></div>
+    <div class="pillar orange"><p class="pillar-title">CPA engine</p><p class="pillar-body">Up to $750/user. Scariati, Ivanov.</p></div>
+    <div class="pillar pink"><p class="pillar-title">B2B awards</p><p class="pillar-body">Money Expo, iFX Expo. UF "Best Broker LATAM" 2025.</p></div>
+    <div class="pillar amber"><p class="pillar-title">Local UX</p><p class="pillar-body">PIX, SPEI, PSE, WebPay, MercadoPago.</p></div>
+  </div>
+
+  <p class="section-label">Timeline 2024 → 2025</p>
+  <div class="timeline" style="margin-bottom: 24px;">
+    <div class="tl-item"><div class="tl-dot dot-grey"></div><p class="tl-date">Apr 2024 · Base</p><p class="tl-title">LALIGA Official Regional Partner</p></div>
+    <div class="tl-item"><div class="tl-dot dot-grey"></div><p class="tl-date">Jul 2024</p><p class="tl-title">Team Pro · Nardelli + De Salcedo added</p></div>
+    <div class="tl-item"><div class="tl-dot dot-orange"></div><p class="tl-date">Mar 5–6, 2025</p><p class="tl-title">Money Expo Mexico · Titanium</p></div>
+    <div class="tl-item"><div class="tl-dot dot-orange"></div><p class="tl-date">Apr 3</p><p class="tl-title">Rankia BA · sponsor</p></div>
+    <div class="tl-item"><div class="tl-dot dot-pink"></div><p class="tl-date">Apr 9–10</p><p class="tl-title">iFX Expo LATAM · Diamond + "Best Broker LATAM"</p></div>
+    <div class="tl-item"><div class="tl-dot dot-blue"></div><p class="tl-date">May 10</p><p class="tl-title">El Clásico 2025 · "Unleashing ambition"</p></div>
+    <div class="tl-item"><div class="tl-dot dot-orange"></div><p class="tl-date">Jun 25–26</p><p class="tl-title">Money Expo Colombia · exhibitor</p></div>
+    <div class="tl-item"><div class="tl-dot dot-purple"></div><p class="tl-date">Sep 9</p><p class="tl-title">"Emotional code" PR · pivot to mindset</p></div>
+    <div class="tl-item"><div class="tl-dot dot-pink"></div><p class="tl-date">Nov 2025</p><p class="tl-title">Mexico Master Trading · María Patti as spokesperson</p></div>
+  </div>
+
+  <p class="section-label">Pattern reading</p>
+  <div class="grid grid-1">
+    <div class="insight"><strong>1 · Defends, doesn't conquer.</strong> 2025 was retention of "Best Broker LATAM" title + channel consolidation, not market opening.</div>
+    <div class="insight"><strong>2 · Mexico = stage, Argentina = content factory.</strong> Big sponsorships in CDMX; Argentina concentrates the finfluencer engine.</div>
+    <div class="insight"><strong>3 · The product is the propaganda.</strong> Acquisition hook = CPA $750/user to affiliates. Not zero-fee. B2B2C disguised as consumer.</div>
+    <div class="insight"><strong>4 · Different regulatory risk than crypto exchanges.</strong> No equivalent to CNV PSAV for offshore retail FX brokers in any LatAm country. That gives Exness more time than MEXC — but its playbook is exactly what MEXC is copying.</div>
+    <div class="insight"><strong>5 · Vs MEXC.</strong> Exness sells ambition ("born to trade"). MEXC sells opportunity ("zero fee"). Same geographies, different customer profiles — Exness targets aspirational retail traders, MEXC targets crypto-curious users hunting for cheap access.</div>
+  </div>
+
+</section>
+
+<!-- ============ WHITEBIT ============ -->
+<section data-section="whitebit" class="section" role="tabpanel">
+
+  <div class="card-hero" style="margin-bottom: 24px;">
+    <p class="eyebrow">WhiteBIT · Thesis</p>
+    <p style="font-size: 17px; font-weight: 500; margin-bottom: 6px;">Not a LatAm strategy — a global legitimacy project</p>
+    <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.55;">European exchange ~30× smaller than MEXC. The PSAV AR registration (Nov 2025) plus a Brazil branch is part of a systematic campaign: UK, US, MiCA Croatia/Italy, Kazakhstan, Turkey, Australia. LatAm is one more jurisdiction in a global respectability project — but it now competes for share against Binance, Bitget, Bitso, Coinbase, Kraken, all also registered.</p>
+  </div>
+
+  <p class="section-label">Real scale</p>
+  <div class="grid grid-auto-150" style="margin-bottom: 24px;">
+    <div class="stat-box"><p class="stat-label">WhiteBIT 24h vol</p><p class="stat-value">~$1.5B</p><p class="stat-detail">Rank #106</p></div>
+    <div class="stat-box"><p class="stat-label">Bitget global</p><p class="stat-value">Top 4</p><p class="stat-detail">+ PSAV AR + CM</p></div>
+    <div class="stat-box"><p class="stat-label">MEXC global</p><p class="stat-value">Top 5</p><p class="stat-detail">No PSAV</p></div>
+    <div class="stat-box"><p class="stat-label">WBT revenue 2024</p><p class="stat-value">€15M</p><p class="stat-detail">vs Kraken $1.5B</p></div>
+  </div>
+
+  <div class="insight" style="margin-bottom: 24px;"><strong>The regulated club isn't exclusive anymore.</strong> With Bitget and Bybit (via Luzpay S.A.) both inside the PSAV registry — and each with scale, LALIGA/brand presence, and dedicated CMs — the thesis "I'm the only top exchange licensed in LatAm" collapses entirely. WhiteBIT competes against players that have everything they have plus significantly more scale.</div>
+
+  <p class="section-label">Why they pay the regulatory cost</p>
+  <div class="grid grid-1" style="margin-bottom: 24px;">
+    <div class="card" style="border-left: 3px solid #1D9E75;"><p style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">1 · They can't afford not to license</p><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">Compliance is their only credible differentiation — but no longer exclusive.</p></div>
+    <div class="card" style="border-left: 3px solid #1D9E75;"><p style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">2 · WBT token monetizes the storytelling</p><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">WBT +30% intraday with Juventus sleeve, triple-digit gains in 2025. Paying €5M/year for Juventus on €15M exchange revenue only makes sense if WBT is the unit of account.</p></div>
+    <div class="card" style="border-left: 3px solid #1D9E75;"><p style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">3 · Argentina registration offers high reputational return</p><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">Each new jurisdiction adds credibility to the global narrative. For a player of WhiteBIT's size, being "regulated in Argentina" carries more PR weight than operational cost.</p></div>
+    <div class="card" style="border-left: 3px solid #1D9E75;"><p style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">4 · Ukrainian-Russian reputational factor forces over-compensation</p><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">Independent reports (NSU, Cryptointelligence) allege the real owner was Mykyta Shentsev, son of a sanctioned pro-Russian ex-MP. WhiteBIT denies it. Licenses function as both legal defense and marketing.</p></div>
+  </div>
+
+  <p class="section-label">Revised verdict</p>
+  <div class="card" style="margin-bottom: 12px;">
+    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">Niche with less potential than initially estimated.</p>
+    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.55; margin-bottom: 6px;">My previous read said "the only regulatory outlier." With Bitget also inside, differentiation shrinks. WhiteBIT still has shots in three narrower segments:</p>
+    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.55;">• <strong style="font-weight:500;">Institutional LatAm</strong> looking for EU MiCA + LatAm licensed counterparty — where Bitget fights with a crypto-native narrative.<br>• <strong style="font-weight:500;">European retail in LatAm</strong> trusting the brand via FC Barcelona / Juventus.<br>• <strong style="font-weight:500;">B2B partnerships</strong> with fintechs needing MiCA + LatAm paper trail.</p>
+  </div>
+
+  <div class="insight"><strong>Central fragility:</strong> pro-Russian ownership allegations. If confirmed or escalated to CNV/BCB, licenses get revoked and the entire structure falls. Bitget has no such exposure — which is why Bitget is the real competitor, not MEXC.</div>
+
+</section>
+
+<!-- ============ BITGET ============ -->
+<section data-section="bitget" class="section" role="tabpanel">
+
+  <div class="card-hero" style="margin-bottom: 24px;">
+    <p class="eyebrow">Bitget · North star</p>
+    <p style="font-size: 17px; font-weight: 500; margin-bottom: 6px;">"Make it count" — the Messi-to-LALIGA pivot, executed with compliance</p>
+    <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.55;">The model case. Top-4 global exchange, Singapore-based, made Argentina its strategic anchor for LatAm: Messi as ambassador since 2022, LALIGA partnership Sept 2024, first-ever country manager (Carolina Gama) for AR in 2025, BTGT Innovación PSAV registration, +68% users / +34% volume in 2024. Combines the marketing aggressiveness of MEXC/Bybit with the regulatory discipline of WhiteBIT/Bitso.</p>
+  </div>
+
+  <p class="section-label">Real scale</p>
+  <div class="grid grid-auto-150" style="margin-bottom: 24px;">
+    <div class="stat-box"><p class="stat-label">Global ranking</p><p class="stat-value">Top 4</p><p class="stat-detail">By daily volume</p></div>
+    <div class="stat-box"><p class="stat-label">Global growth 2024</p><p class="stat-value">+400%</p><p class="stat-detail">Year over year</p></div>
+    <div class="stat-box"><p class="stat-label">Argentina 2024</p><p class="stat-value">+68% / +34%</p><p class="stat-detail">Users / volume</p></div>
+    <div class="stat-box"><p class="stat-label">BGB token 2024</p><p class="stat-value">+900%</p><p class="stat-detail">Native token</p></div>
+  </div>
+
+  <p class="section-label">Pillars</p>
+  <div class="grid grid-auto-170" style="margin-bottom: 24px;">
+    <div class="pillar purple"><p class="pillar-title">Sport &amp; legends</p><p class="pillar-body">Messi 2022–24, LALIGA 2024+, Forlán at LABITCONF.</p></div>
+    <div class="pillar green"><p class="pillar-title">Regulation</p><p class="pillar-body">PSAV AR, VASP Poland + Lithuania, EU MiCA prep.</p></div>
+    <div class="pillar orange"><p class="pillar-title">Country managers</p><p class="pillar-body">Carolina Gama (AR), ~100-person LatAm team.</p></div>
+    <div class="pillar pink"><p class="pillar-title">Education + community</p><p class="pillar-body">Blockchain4Youth, Blockchain4Her programs.</p></div>
+    <div class="pillar amber"><p class="pillar-title">Token monetization</p><p class="pillar-body">BGB +900% 2024. UEX product, copy trading.</p></div>
+  </div>
+
+  <p class="section-label">Timeline 2022 → 2026</p>
+  <div class="timeline" style="margin-bottom: 24px;">
+    <div class="tl-item"><div class="tl-dot dot-grey"></div><p class="tl-date">Oct 2022 · Base</p><p class="tl-title">Lionel Messi as Bitget brand ambassador</p><p class="tl-desc">2-year deal pre-Qatar World Cup. Established LatAm awareness anchor.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-grey"></div><p class="tl-date">2023</p><p class="tl-title">Quiet build-up in LatAm</p><p class="tl-desc">Branding work, market intelligence, KOL recruiting. Pre-CM phase.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-green"></div><p class="tl-date">~Q1 2024</p><p class="tl-title">Carolina Gama joins as Branding Lead LatAm</p><p class="tl-desc">Ex-Binance LatAm marketing lead + ex-AstroPay VP Marketing.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-purple"></div><p class="tl-date">2024 full year</p><p class="tl-title">Argentina growth: +68% users, +34% volume</p><p class="tl-desc">Global growth +400% YoY. Argentina ranks #15 globally on Chainalysis Adoption Index.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-orange"></div><p class="tl-date">Sep 18, 2024</p><p class="tl-title">LALIGA Official Crypto Partner — Token2049 Singapore</p><p class="tl-desc">Multi-million USD, 2-year deal. East/SE Asia + LatAm. Replaces Messi deal. CEO Gracy Chen: "slightly cheaper, more freedom, deeper collaborations."</p></div>
+    <div class="tl-item"><div class="tl-dot dot-orange"></div><p class="tl-date">Q3-Q4 2024</p><p class="tl-title">VASP registrations Poland + Lithuania</p><p class="tl-desc">Parallel regulatory plays in EU set the global tone.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-orange"></div><p class="tl-date">Late 2024</p><p class="tl-title">BTGT Innovación registers with CNV (PSAV)</p><p class="tl-desc">Bitget enters Argentina's official Virtual Asset Service Provider registry. Forbes names it "one of the most trusted exchanges globally."</p></div>
+    <div class="tl-item"><div class="tl-dot dot-pink"></div><p class="tl-date">Feb 28, 2025</p><p class="tl-title">Carolina Gama promoted to Country Manager Argentina</p><p class="tl-desc">First dedicated CM for any country. Public goal: double users + volume in 2025. Bitget4Her event March 8.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-pink"></div><p class="tl-date">May 2025</p><p class="tl-title">Bitget AR grew ~70% 2024-2025</p><p class="tl-desc">Carolina to La Nación: "Argentinians invest in crypto with strategy, not by fad."</p></div>
+    <div class="tl-item"><div class="tl-dot dot-blue"></div><p class="tl-date">Nov 7–8, 2025</p><p class="tl-title">LABITCONF Buenos Aires · Forlán activation</p><p class="tl-desc">Bitget brings Diego Forlán via LALIGA partnership. Direct competitor to MEXC's sponsorship — but Bitget arrives with both compliance AND legend.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-blue"></div><p class="tl-date">Dec 2025</p><p class="tl-title">CEO Gracy Chen: "Argentina is the heart of our global strategy"</p><p class="tl-desc">UEX (Universal Exchange) expansion in AR, Devconnect milestone, regulatory readiness for 2026.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-blue"></div><p class="tl-date">May 2026 (now)</p><p class="tl-title">Best-positioned offshore player for the Brazil deadline</p><p class="tl-desc">With BCB monitoring live and authorization due in Oct 2026, Bitget already has the playbook installed.</p></div>
+  </div>
+
+  <p class="section-label">Why Bitget breaks the pattern</p>
+  <div class="grid grid-1" style="margin-bottom: 24px;">
+    <div class="card" style="border-left: 3px solid #534AB7;"><p style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">1 · Compliance and aggression aren't mutually exclusive</p><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">MEXC chose aggression without compliance. WhiteBIT chose compliance without scale. Bitget went for both — and that combination is the most replicable model.</p></div>
+    <div class="card" style="border-left: 3px solid #534AB7;"><p style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">2 · The Messi → LALIGA pivot was strategically brilliant</p><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">From a single ambassador (expensive, narrow) to a league (cheaper, broader). Replaces a depreciating asset (aging player) with a permanent one (league brand). Opens access to Mbappé, current stars, women's football. Exness signed LALIGA the same year — Bitget got "Official Crypto Partner" status.</p></div>
+    <div class="card" style="border-left: 3px solid #534AB7;"><p style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">3 · BGB token = sustainable financing engine</p><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">+900% in 2024. Like WhiteBIT with WBT, Bitget uses its native token to capitalize aggressive expansion. Difference: BGB has 10× the market cap of WBT — more financial firepower without diluting equity.</p></div>
+  </div>
+
+  <p class="section-label">The Bitget verdict</p>
+  <div class="card" style="margin-bottom: 12px;">
+    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">The best-positioned international player in Argentina — regulated and aggressive for the CEX traders.</p>
+    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.55; margin-bottom: 6px;">Has everything MEXC has (top-5 scale, marketing aggression, sports sponsorships, KOL/community) plus PSAV registration, dedicated CM, ex-Binance/AstroPay talent, BGB token funding, and a 2022-2026 timeline that demonstrates strategic patience rather than improvisation.</p>
+    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.55;">Now that Brazil's BCB framework is live and the October authorization deadline is six months away, Bitget is the player least exposed to forced restructuring — by design.</p>
+  </div>
+
+  <div class="insight"><strong>What other players should learn:</strong> Bitget didn't choose between marketing and compliance. They paid both costs simultaneously starting in 2022 (Messi) and added the regulatory layer in 2024-2025. Bybit followed the same logic via Luzpay S.A. — registration before brand activation. MEXC is the outlier that still hasn't made that move.</div>
+
+</section>
+
+<!-- ============ BYBIT ============ -->
+<section data-section="bybit" class="section" role="tabpanel">
+
+  <div class="card-hero" style="margin-bottom: 24px;">
+    <p class="eyebrow">Bybit · Registered via Luzpay S.A.</p>
+    <p style="font-size: 17px; font-weight: 500; margin-bottom: 6px;">Registered quietly, expanded loudly — PSAV + card operator since Aug 2024</p>
+    <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.55;">World's #2 exchange by volume ($4B+/day, $11B AUM, 38,282 BTC under management). Registered in Argentina as PSAV and card operator through <strong>Luzpay S.A.</strong> since August 2024 — before appointing its first regional CM. Then added Patricio Mesri as Country Manager for Spanish-speaking LatAm (May 2025). Participated in regulatory dialogue at Devconnect Regulation Day 2025 alongside Bitso and Belo. A player that combined quiet compliance with aggressive brand-building.</p>
+  </div>
+
+  <p class="section-label">Real scale</p>
+  <div class="grid grid-auto-150" style="margin-bottom: 24px;">
+    <div class="stat-box"><p class="stat-label">Global ranking</p><p class="stat-value">#2</p><p class="stat-detail">By daily volume</p></div>
+    <div class="stat-box"><p class="stat-label">Daily volume</p><p class="stat-value">$4B+</p><p class="stat-detail">Spot + derivatives</p></div>
+    <div class="stat-box"><p class="stat-label">AUM</p><p class="stat-value">$11B</p><p class="stat-detail">+ 38,282 BTC</p></div>
+    <div class="stat-box"><p class="stat-label">AR crypto vol H1 2025</p><p class="stat-value">$93.9B</p><p class="stat-detail">Total market context</p></div>
+  </div>
+
+  <p class="section-label">Pillars</p>
+  <div class="grid grid-auto-170" style="margin-bottom: 24px;">
+    <div class="pillar purple"><p class="pillar-title">Country manager</p><p class="pillar-body">Mesri (Spanish LATAM, May 2025).</p></div>
+    <div class="pillar green"><p class="pillar-title">Regulatory dialogue</p><p class="pillar-body">Mykolas Majauskas at Devconnect Regulation Day 2025 — alongside Bitso, Belo, Ethereum Foundation.</p></div>
+    <div class="pillar orange"><p class="pillar-title">Payments product</p><p class="pillar-body">Bybit card + crypto payment services via Luzpay S.A.</p></div>
+    <div class="pillar pink"><p class="pillar-title">Cultural sponsorship</p><p class="pillar-body">Web Summit Rio. Community events across AR, MX, CO.</p></div>
+    <div class="pillar amber"><p class="pillar-title">Stablecoin partnership</p><p class="pillar-body">Direct partnership with Tether for LatAm distribution.</p></div>
+  </div>
+
+  <p class="section-label">Argentina presence — registered and active</p>
+  <div class="card" style="margin-bottom: 24px;">
+    <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 6px;">Bybit's Argentina footprint goes deeper than most realize:</p>
+    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">• <strong style="font-weight:500;">Aug 2024 –</strong> Bybit registers as PSAV and card operator in Argentina through <strong>Luzpay S.A.</strong>, regulated by the UIF. The registration predates the appointment of any regional CM.</p>
+    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">• <strong style="font-weight:500;">May 2025 –</strong> Patricio Mesri appointed Country Manager for Spanish-speaking LatAm. Web3-native profile (gaming + fintech + market intelligence). Helen Liu, Bybit COO: "LatAm is a key region where innovation meets necessity."</p>
+    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">• <strong style="font-weight:500;">Throughout 2025 –</strong> VIP trader dinners, grassroots events, educational initiatives across AR, MX, CO.</p>
+    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">• <strong style="font-weight:500;">Nov 2025 –</strong> Devconnect ARG · Regulation Day 2025. ~1,500 attendees. Mykolas Majauskas, Bybit Senior Director of Policy, on panel "Public-Private Collaboration in Crypto: VASP's Role in Policymaking" alongside Bitso, Belo, and Ethereum Foundation.</p>
+  </div>
+
+  <p class="section-label">Timeline 2024 → 2026</p>
+  <div class="timeline" style="margin-bottom: 24px;">
+    <div class="tl-item"><div class="tl-dot dot-grey"></div><p class="tl-date">Throughout 2024</p><p class="tl-title">Quiet LatAm consolidation</p><p class="tl-desc">Market intelligence, partnerships exploration, Bybit Pay product development.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-green"></div><p class="tl-date">Aug 2024</p><p class="tl-title">Luzpay S.A. registered as PSAV + card operator in Argentina</p><p class="tl-desc">Bybit's Argentine legal entity. Regulated by the UIF. Registration before any CM appointment — compliance first, brand second.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-orange"></div><p class="tl-date">May 15, 2025</p><p class="tl-title">Patricio Mesri appointed Country Manager Spanish LatAm</p><p class="tl-desc">Covers AR, MX, CO, CL, PE, UY. "CryptoArk" thesis: crypto as access vehicle.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-orange"></div><p class="tl-date">Throughout 2025</p><p class="tl-title">Tether partnership + community events across region</p><p class="tl-desc">Stablecoin distribution agreement + VIP trader dinners, grassroots activations in AR, MX, CO.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-pink"></div><p class="tl-date">Nov 2025</p><p class="tl-title">Devconnect Regulation Day 2025 panels</p><p class="tl-desc">Regulatory dialogue alongside registered local players — Bitso, Belo, Ethereum Foundation.</p></div>
+  </div>
+
+  <p class="section-label">What makes Bybit's approach distinct</p>
+  <div class="grid grid-1" style="margin-bottom: 24px;">
+    <div class="card" style="border-left: 3px solid #1D9E75;"><p style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">1 · Compliance before brand</p><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">Luzpay S.A. was registered as PSAV in August 2024, before Bybit appointed any regional CM. Most players build brand first and figure out compliance later (or never). Bybit reversed the sequence — at least in Argentina.</p></div>
+    <div class="card" style="border-left: 3px solid #1D9E75;"><p style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">2 · Local entity, not just a registration number</p><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">Operating through an Argentine S.A. means local governance, local UIF reporting, and local accountability — not just a checkbox. That's a stronger commitment than a foreign entity filing for offshore registration.</p></div>
+    <div class="card" style="border-left: 3px solid #1D9E75;"><p style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">3 · Regulatory dialogue is genuine, not performative</p><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">Sitting on the Devconnect Regulation Day panel alongside Bitso, Belo, and the Ethereum Foundation while already registered carries a different weight than doing so as an unregistered player. Bybit's policy presence in Argentina is backed by actual legal standing.</p></div>
+  </div>
+
+  <p class="section-label">The Bybit verdict</p>
+  <div class="card" style="margin-bottom: 12px;">
+    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">Regulated, scaled, and community-driven — the most complete international player in Argentina.</p>
+    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.55; margin-bottom: 6px;">Bybit combined the right sequence: registration via Luzpay S.A. before brand noise, then CM, community events, regulatory panels, and payments product. It's the only player in this dossier that is simultaneously #2 globally by volume, registered in Argentina, and actively building community presence on the ground.</p>
+    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.55;">The question going forward is whether this discipline extends to other LatAm markets — or remains an Argentina-specific play.</p>
+  </div>
+</section>
+
+<!-- ============ NEXO ============ -->
+<section data-section="nexo" class="section" role="tabpanel">
+
+  <div class="card-hero" style="margin-bottom: 24px;">
+    <p class="eyebrow">Nexo · The acquisition play</p>
+    <p style="font-size: 17px; font-weight: 500; margin-bottom: 6px;">Skip the build — buy the CNV license, the users, and the local team</p>
+    <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.55;">Swiss-origin digital asset wealth platform. $11B AUM, $371B in total transactions processed globally, 10M+ users across 200+ jurisdictions. Before December 2025, Argentina was just one of those 200+ jurisdictions — accessible via nexo.com with no local team, no events, no PR, no marketing. No country manager, no LABITCONF presence, no KOL program. Then in December 2025 Nexo skipped years of organic build and bought Buenbit — Argentina's most established CNV-registered crypto platform — gaining 1M+ users, $2B+ historical volume, CNV compliance, local team, and Buenos Aires as a formal LatAm hub overnight.</p>
+  </div>
+
+  <p class="section-label">Why Argentina specifically</p>
+  <div class="card" style="margin-bottom: 24px;">
+    <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 8px;">Antoni Trenchev (co-founder) called Argentina "a proving ground for fintech innovation." Three reasons stand out in public statements and analyst commentary:</p>
+    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 6px;">• <strong style="font-weight:500;">Inflation as forced product-market fit.</strong> Argentine inflation reached triple digits before recent stabilization. Households actively seek inflation hedges and stable savings instruments — exactly Nexo's core products (high-yield USD savings, crypto-backed credit, stablecoin yields). The largest single national market where Nexo's value proposition is structurally needed rather than optional.</p>
+    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 6px;">• <strong style="font-weight:500;">Highest crypto penetration in LatAm.</strong> Among the highest crypto adoption rates worldwide. ~$87.7B in crypto transactions in December 2024 alone. Users were already trading and saving in stablecoins via Buenbit, Lemon, Ripio — but no one was offering institutional yield + lending at scale. Product gap.</p>
+    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">• <strong style="font-weight:500;">CNV framework as regulatory anchor.</strong> Argentina's PSAV registry gave Nexo a credible compliance entry point — important for a company rebuilding after its 2023 SEC settlement. A CNV-registered acquisition (Buenbit) was cleaner than filing from scratch and produced the headline "regulated entry into Argentina" rather than "Cayman platform serving Argentines."</p>
+  </div>
+
+  <p class="section-label">Real scale</p>
+  <div class="grid grid-auto-150" style="margin-bottom: 24px;">
+    <div class="stat-box"><p class="stat-label">AUM global</p><p class="stat-value">$11B</p><p class="stat-detail">Digital assets under management</p></div>
+    <div class="stat-box"><p class="stat-label">Total transactions</p><p class="stat-value">$371B</p><p class="stat-detail">Processed globally to date</p></div>
+    <div class="stat-box"><p class="stat-label">Buenbit users (inherited)</p><p class="stat-value">1M+</p><p class="stat-detail">Argentina + Peru</p></div>
+    <div class="stat-box"><p class="stat-label">2025 lender ranking</p><p class="stat-value">#2</p><p class="stat-detail">Largest centralized crypto lender (Galaxy Research)</p></div>
+  </div>
+
+  <p class="section-label">Pillars</p>
+  <div class="grid grid-auto-170" style="margin-bottom: 24px;">
+    <div class="pillar green"><p class="pillar-title">Acquisition-led entry</p><p class="pillar-body">Bought CNV compliance + users + team rather than building organic.</p></div>
+    <div class="pillar purple"><p class="pillar-title">Lending &amp; yield</p><p class="pillar-body">Crypto-backed loans, high-yield USD savings, structured products — categories local exchanges don't offer at scale.</p></div>
+    <div class="pillar orange"><p class="pillar-title">Buenos Aires hub</p><p class="pillar-body">BA as operational base and LatAm HQ, with expansion plans to Peru and Mexico.</p></div>
+    <div class="pillar pink"><p class="pillar-title">Regulatory rehabilitation</p><p class="pillar-body">Bulgarian investigation closed Dec 2024. UK FCA registrations resumed Sep 2024. US relaunch Feb 2026.</p></div>
+    <div class="pillar amber"><p class="pillar-title">Institutional grade</p><p class="pillar-body">SOC 2 + SOC 3 (3rd consecutive year). Anti-Scam Engine. $11B AUM as trust signal.</p></div>
+  </div>
+
+  <p class="section-label">Timeline 2024 → April 2026</p>
+  <div class="timeline" style="margin-bottom: 24px;">
+    <div class="tl-item"><div class="tl-dot dot-grey"></div><p class="tl-date">2024 · No Argentina presence</p><p class="tl-title">Available globally via nexo.com, but no local activity</p><p class="tl-desc">Argentine users could access Nexo as one of 200+ jurisdictions globally — but no country manager, no events, no LABITCONF sponsorship, no PR, no KOL program. Argentina was a passive market, not a strategic one.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-grey"></div><p class="tl-date">2024 · Global rebuild</p><p class="tl-title">Regulatory rehabilitation year</p><p class="tl-desc">Bulgarian prosecutors close multi-year investigation — no criminal activity found (Dec 2024). UK FCA registrations resume Sep 2024. Platform processed $1.5B in crypto loans + distributed $250M in interest globally.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-grey"></div><p class="tl-date">2024–2025 ongoing</p><p class="tl-title">Internal Argentina analysis — CNV monitoring</p><p class="tl-desc">Nexo tracks Argentina's evolving PSAV framework. Identifies Buenbit as the cleanest local entry point: CNV-registered, compliance-first culture, 1M+ user base, strong brand in AR and PE. M&amp;A team begins informal conversations.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-green"></div><p class="tl-date">Apr 2025</p><p class="tl-title">Nexo announces US re-entry plans</p><p class="tl-desc">Signals global comeback narrative — important context for the Argentina acquisition coming later that year.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-green"></div><p class="tl-date">Dec 11, 2025</p><p class="tl-title">Nexo acquires Buenbit — Buenos Aires as LatAm hub</p><p class="tl-desc">First strategic acquisition in Nexo's history. Gains: CNV-registered entity, 1M+ users, $2B+ historical volume, local team led by Federico Ogue (CEO Buenbit). Buenos Aires formally named LatAm headquarters. Customers migrated. Plans to expand to Peru and Mexico.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-green"></div><p class="tl-date">Dec 2025</p><p class="tl-title">Nexo product suite launches for Buenbit users</p><p class="tl-desc">Buenbit clients get access to crypto-backed loans, high-yield USD savings, structured products, futures trading, loyalty program. Launch of "21st-century digital dollar time deposit" — flagship product targeting Argentine inflation hedge demand.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-blue"></div><p class="tl-date">Dec 23, 2025</p><p class="tl-title">Year-end recap: Buenbit named first strategic acquisition</p><p class="tl-desc">"2025 marked Nexo's first strategic acquisition of the leading Argentinian platform: Buenbit, expanding our presence in Latin America and strengthening our regional capabilities."</p></div>
+    <div class="tl-item"><div class="tl-dot dot-blue"></div><p class="tl-date">Feb 16, 2026</p><p class="tl-title">Nexo officially re-enters the US market</p><p class="tl-desc">Backed by Bakkt infrastructure. Coincides with Argentina expansion — both part of the global "we're back, regulated" narrative.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-pink"></div><p class="tl-date">Apr 14, 2026</p><p class="tl-title">Nexo becomes Official Digital Asset Partner of AFA</p><p class="tl-desc">Partnership with the Argentine Football Association ahead of the 2026 FIFA World Cup. Post-acquisition activation — using football as the brand awareness layer on top of the Buenbit user base.</p></div>
+  </div>
+
+  <p class="section-label">Why this play is structurally different</p>
+  <div class="grid grid-1" style="margin-bottom: 24px;">
+    <div class="card" style="border-left: 3px solid #1D9E75;"><p style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">1 · M&amp;A as regulatory shortcut</p><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">Every other player in this dossier either registered directly (Bitget, Bybit/Luzpay, WhiteBIT) or didn't bother (MEXC, KuCoin). Nexo took a third path: acquire the licensed entity. That's faster, comes with brand equity, users, and local team knowledge that no filing delivers.</p></div>
+    <div class="card" style="border-left: 3px solid #1D9E75;"><p style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">2 · Product differentiation vs. the field</p><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">MEXC, Bybit, Bitget compete on spot trading, futures, and token listings. Nexo competes on lending, yield, and wealth management — products almost entirely absent from the Argentine crypto market at scale. No direct local competition in that product layer.</p></div>
+    <div class="card" style="border-left: 3px solid #1D9E75;"><p style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">3 · Argentina's inflation context is the ideal product-market fit</p><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">High-yield savings in USDC/USDT and crypto-backed credit lines are exactly what Argentine users need amid persistent inflation and capital controls. Nexo's core product is essentially a dollar savings account with yield — a category with massive latent demand in Argentina.</p></div>
+    <div class="card" style="border-left: 3px solid #1D9E75;"><p style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">4 · Regulatory rehabilitation makes the timing right</p><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">Nexo exited the US in 2023 ($45M SEC settlement), faced Bulgarian investigation (closed Dec 2024, no findings), resumed UK FCA in Sep 2024. The Buenbit acquisition is the flagship of a global "we're clean now" narrative. Argentina is both a genuine market opportunity and a proof point for the comeback story.</p></div>
+  </div>
+
+  <p class="section-label">The Nexo verdict</p>
+  <div class="card" style="margin-bottom: 12px;">
+    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">The most differentiated entry in Argentina — compliant, product-unique, and with a ready user base.</p>
+    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.55; margin-bottom: 6px;">Nexo doesn't compete with MEXC or Bybit for the spot trader. It competes for the user who wants to earn yield on stablecoins, access credit against their crypto, and operate in a platform that feels like a bank — regulated, institutional, and trustworthy. In Argentina that user is abundant and underserved.</p>
+    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.55;">The acquisition is done and customers are migrated. The AFA partnership in April 2026 layered brand awareness on top of the inherited user base. The execution test now is product adoption: can Nexo convert Buenbit's trading-focused users into yield and lending customers?</p>
+  </div>
+
+  <div class="insight"><strong>The real challenge:</strong> Buenbit's user base was built around spot trading and stablecoin savings. Nexo's core value is lending and yield — a different behavior and trust threshold. Converting inherited users into Nexo product adopters is the execution test that matters now.</div>
+
+</section>
+
+<!-- ============ BINANCE ============ -->
+<section data-section="binance" class="section" role="tabpanel">
+
+  <div class="card-hero" style="margin-bottom: 24px;">
+    <p class="eyebrow">Binance · The incumbent normalization play</p>
+    <p style="font-size: 17px; font-weight: 500; margin-bottom: 6px;">From outlaw to regulated incumbent — Argentina as the 20th regulatory milestone</p>
+    <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.55;">World's #1 exchange by volume. After years of operating without formal local registration anywhere in LatAm, Binance pivoted to a "compliant incumbent" posture starting in late 2024. Argentina became its 20th regulatory milestone globally, paving the way for a full product relaunch in 2025: Binance Card revived in partnership with Mastercard (February 2025), Binance Pay integrated with Brazil's PIX for Argentine travelers (December 2025), and a heavy LABITCONF activation in November 2025. The story is not "Binance arrives in Argentina" — it's "Binance normalizes Argentina."</p>
+  </div>
+
+  <p class="section-label">Real scale</p>
+  <div class="grid grid-auto-150" style="margin-bottom: 24px;">
+    <div class="stat-box"><p class="stat-label">Global ranking</p><p class="stat-value">#1</p><p class="stat-detail">By daily volume</p></div>
+    <div class="stat-box"><p class="stat-label">Global regulatory approvals</p><p class="stat-value">20+</p><p class="stat-detail">Argentina was #20</p></div>
+    <div class="stat-box"><p class="stat-label">Binance Pay PIX</p><p class="stat-value">1st</p><p class="stat-detail">First-ever integration with a national payment system</p></div>
+    <div class="stat-box"><p class="stat-label">AR-BR traveler base</p><p class="stat-value">2.5M+</p><p class="stat-detail">Argentine visitors to BR Jan-Aug 2025</p></div>
+  </div>
+
+  <p class="section-label">Pillars</p>
+  <div class="grid grid-auto-170" style="margin-bottom: 24px;">
+    <div class="pillar green"><p class="pillar-title">CNV PSAV registration</p><p class="pillar-body">Binance Services Latinoamérica registered as #20 global regulatory milestone (Sep 2024). Sets the tone for the entire 2025 LatAm pivot.</p></div>
+    <div class="pillar purple"><p class="pillar-title">Binance Card relaunch</p><p class="pillar-body">Feb 2025 partnership with Mastercard — bringing the product back to Argentina after the 2023 hiatus when Mastercard ended the original program.</p></div>
+    <div class="pillar orange"><p class="pillar-title">Binance Pay + PIX</p><p class="pillar-body">Dec 2025: first-ever Binance Pay integration with a national payment system anywhere in the world. Argentines pay in crypto at 150M+ Brazilian merchants via PIX.</p></div>
+    <div class="pillar pink"><p class="pillar-title">Regional leadership structure</p><p class="pillar-body">Dedicated GM for LatAm in place since 2022. Regional VP role added later — split between strategic policy and operations. Hybrid coverage of regulatory dialogue and market execution.</p></div>
+    <div class="pillar amber"><p class="pillar-title">Events presence</p><p class="pillar-body">LABITCONF 2025 activations alongside Bitget, Exness, BingX. Strong presence at AR Tech Week.</p></div>
+  </div>
+
+  <p class="section-label">Timeline 2024 → 2025</p>
+  <div class="timeline" style="margin-bottom: 24px;">
+    <div class="tl-item"><div class="tl-dot dot-grey"></div><p class="tl-date">Aug 2022 · Base</p><p class="tl-title">Original Binance Card Argentina launch with Mastercard</p><p class="tl-desc">First Mastercard-backed crypto card in LatAm. Issued by Credencial Payments. 8% cashback in BNB. Beta launch with global press coverage.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-grey"></div><p class="tl-date">Aug 2023</p><p class="tl-title">Mastercard ends Binance card program globally</p><p class="tl-desc">During Binance's global regulatory pressure (DOJ, SEC), Mastercard and Visa pull back. The Argentina card goes dormant alongside other global cards. Two-year setback.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-green"></div><p class="tl-date">Sep 30, 2024</p><p class="tl-title">PSAV registration — 20th global regulatory milestone</p><p class="tl-desc">Binance Services Latinoamérica enters the CNV PSAV registry. Registration #06141508221040. The Regional VP for LatAm framed it publicly as support for "forward-looking regulation." App and website fully available to Argentine users under local law. Compliance with UIF reporting required.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-green"></div><p class="tl-date">Q4 2024</p><p class="tl-title">Strategic alignment with Argentina's blanqueo de capitales</p><p class="tl-desc">Binance's PSAV registration becomes one of the only foreign-headquartered options for Argentine users participating in the capital regularization program (5% / 10% / 15% staged tax rates). Significant inflow of declared crypto holdings.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-orange"></div><p class="tl-date">Feb 10, 2025</p><p class="tl-title">Binance Card relaunch with Mastercard</p><p class="tl-desc">Mastercard partnership officially restored in Argentina after 18 months. Card available again with crypto-to-fiat conversion at point of purchase, BNB cashback up to 8%. Signal that Binance has rebuilt the Mastercard relationship globally — Argentina is the showcase market.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-orange"></div><p class="tl-date">2025 ongoing</p><p class="tl-title">Product fully active for Argentine users</p><p class="tl-desc">Spot, futures, P2P in ARS, Binance Earn, Binance Academy in Spanish, full mobile and web access under Argentine regulatory perimeter.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-pink"></div><p class="tl-date">Nov 7–8, 2025</p><p class="tl-title">LABITCONF 2025 activation — UNSTOPPABLE edition</p><p class="tl-desc">Binance among the main activations at the 9,000-attendee event in Costa Salguero. Sits alongside Bitget, Exness, BingX, CoinEx, Ledn. Argentina Tech Week framing — Binance positioned as part of the regulatory-compliant tier, not the offshore tier.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-blue"></div><p class="tl-date">Dec 1, 2025</p><p class="tl-title">Binance Pay + PIX integration — first in the world</p><p class="tl-desc">Argentines traveling to Brazil can now pay with crypto at 150M+ PIX merchants. The Regional VP for LatAm framed it as the "first time Binance Pay integrates directly with a national payment system anywhere in the world." 2.5M+ Argentine visitors to Brazil in Jan-Aug 2025 — the target use case. Cross-border crypto payments at scale.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-blue"></div><p class="tl-date">2025 capstone</p><p class="tl-title">Brand transformation: from "outlaw exchange" to "regulated incumbent"</p><p class="tl-desc">By end of 2025 Binance positions itself in LatAm communications as the bridge between global scale and local compliance — explicitly contrasted (often implicitly) with MEXC and KuCoin still operating offshore.</p></div>
+  </div>
+
+  <p class="section-label">Why this is the most important LatAm pivot of 2024–25</p>
+  <div class="grid grid-1" style="margin-bottom: 24px;">
+    <div class="card" style="border-left: 3px solid #1D9E75;"><p style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">1 · The PSAV registration set the precedent for everyone</p><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">When Binance — the global #1 — registered as PSAV in September 2024, it sent a signal across the industry that registration was both viable and necessary for serious players. Bitget, WhiteBIT, and Bybit (via Luzpay) followed. MEXC and KuCoin chose not to. Binance set the bar.</p></div>
+    <div class="card" style="border-left: 3px solid #1D9E75;"><p style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">2 · The Mastercard card relaunch proves regulatory rehabilitation works</p><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">In 2023, Mastercard ended the Binance card globally. In 2025, they brought it back in Argentina first. That sequence is not random — Argentina was where Binance had the cleanest compliance posture (newly registered PSAV) and the strongest product-market fit (inflation-driven crypto demand). The relaunch was both a product event and a reputational rehabilitation milestone.</p></div>
+    <div class="card" style="border-left: 3px solid #1D9E75;"><p style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">3 · Binance Pay + PIX is a strategic moat against everyone</p><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">Being the first crypto company in the world to integrate with a national payment system gives Binance a use case (cross-border travel payments) that's hard to replicate. Argentines crossing into Brazil — 2.5M+ in 8 months — get crypto payments at PIX scale. MEXC, KuCoin, even Bitget don't have this. It's a wedge against locals (Bitso, Lemon, Ripio) AND against global competitors.</p></div>
+    <div class="card" style="border-left: 3px solid #1D9E75;"><p style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">4 · The "compliant incumbent" positioning is now defensible</p><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">For years Binance was the global exchange that operated everywhere in regulatory grey zones. Argentina 2024–25 is the proof point of the reverse: largest exchange, formally registered, working with traditional payments infrastructure (Mastercard), partnering with national payment systems (PIX). The whole 2025 storyline reads as: we're not the outlaw anymore.</p></div>
+  </div>
+
+  <p class="section-label">The Binance verdict</p>
+  <div class="card" style="margin-bottom: 12px;">
+    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">The dominant regulated international player — and the benchmark everyone else is measured against.</p>
+    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.55; margin-bottom: 6px;">Binance enters 2026 with: PSAV registration, restored Mastercard card, first-in-world Binance Pay PIX integration, full product suite in Argentina, regional leadership team in place, and visible compliance posture. No other international exchange combines all five.</p>
+    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.55;">The historical context matters: this is the same company that two years ago looked like it might exit major markets entirely. The Argentina pivot is a microcosm of Binance's global rehabilitation — and it worked.</p>
+  </div>
+
+  <div class="insight"><strong>What others are measured against:</strong> Bitget got LALIGA, Bybit got Luzpay S.A., WhiteBIT bet on regulatory exclusivity. But Binance set the actual bar — it registered, it relaunched its card, it integrated with PIX. Every other player's Argentina narrative is now implicitly a response to what Binance did.</div>
+
+</section>
+
+<!-- ============ KRAKEN ============ -->
+<section data-section="kraken" class="section" role="tabpanel">
+
+  <div class="card-hero" style="margin-bottom: 24px;">
+    <p class="eyebrow">Kraken · The corrected return</p>
+    <p style="font-size: 17px; font-weight: 500; margin-bottom: 6px;">From "available in Argentina from HQ" to "registered in Argentina with local rails" — the lesson of the second attempt</p>
+    <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.55;">One of the oldest crypto exchanges in the world (founded 2011). For most of its history, Kraken approached LatAm the same way it approached every other market outside the US and EU — as a remote-served jurisdiction operated from headquarters in San Francisco. Argentines could trade on kraken.com, but there were no local rails, no local partners, no local entity, no regulatory presence. That earlier attempt at LatAm went nowhere meaningful. The 2025 reboot is structurally different: local funding via a local payment partner, formal CNV VASP registration, and a parallel global payments wedge (the Krak app) that gives Argentines a use case beyond pure trading. This is what the corrected second attempt looks like.</p>
+  </div>
+
+  <p class="section-label">Real scale</p>
+  <div class="grid grid-auto-150" style="margin-bottom: 24px;">
+    <div class="stat-box"><p class="stat-label">Global ranking</p><p class="stat-value">~#6</p><p class="stat-detail">By 24h spot volume</p></div>
+    <div class="stat-box"><p class="stat-label">Q3 2025 revenue</p><p class="stat-value">$648M</p><p class="stat-detail">Doubled YoY</p></div>
+    <div class="stat-box"><p class="stat-label">Q3 2025 trading volume</p><p class="stat-value">$562B</p><p class="stat-detail">Spot + derivatives</p></div>
+    <div class="stat-box"><p class="stat-label">Q3 2025 platform AUM</p><p class="stat-value">$59B</p><p class="stat-detail">Client assets</p></div>
+  </div>
+
+  <p class="section-label">Pillars of the corrected 2025 approach</p>
+  <div class="grid grid-auto-170" style="margin-bottom: 24px;">
+    <div class="pillar green"><p class="pillar-title">CNV VASP registration</p><p class="pillar-body">Formal registration with Argentina's National Securities Commission — the structural difference from the previous remote-from-HQ posture.</p></div>
+    <div class="pillar purple"><p class="pillar-title">Local payment partner</p><p class="pillar-body">ARS deposits and withdrawals via a local Argentine payment rail provider — outsourced fiat layer, not a US bank wire.</p></div>
+    <div class="pillar orange"><p class="pillar-title">Krak as parallel wedge</p><p class="pillar-body">Standalone global payments app (separate from kraken.com) — peer-to-peer transfers in 110+ countries, 300+ assets, stablecoin yield.</p></div>
+    <div class="pillar pink"><p class="pillar-title">Stablecoin centricity</p><p class="pillar-body">Stablecoin yield products at the center of value capture. Argentina's inflation context is the ideal product-market fit.</p></div>
+    <div class="pillar amber"><p class="pillar-title">Tokenized equities path</p><p class="pillar-body">Tokenized stocks rolled out to non-US users with explicit LatAm focus. A non-crypto wedge for a crypto-skeptical retail audience.</p></div>
+  </div>
+
+  <p class="section-label">Timeline 2021 → May 2026</p>
+  <div class="timeline" style="margin-bottom: 24px;">
+    <div class="tl-item"><div class="tl-dot dot-grey"></div><p class="tl-date">2021–2022 · The original posture</p><p class="tl-title">"LatAm served from HQ" — no local presence anywhere in the region</p><p class="tl-desc">Kraken's global expansion thesis at the time was remote-first: hire globally, serve every market from the same San Francisco platform. Argentina existed on the platform as a supported jurisdiction but with no local rails, no local registration, no country team, no local marketing. Users worked around this with international wires, USDT bridges, and grey-market workarounds.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-grey"></div><p class="tl-date">Late 2022 · First reset</p><p class="tl-title">FTX collapse triggers global cost-cutting — LatAm ambitions deprioritized</p><p class="tl-desc">Kraken cut ~30% of global headcount, exited Japan, and pulled back from ambitious geographic expansion. LatAm fell off the public roadmap. The "we'll just make it work from HQ" assumption proved unworkable — and the company didn't have the bandwidth to fix it properly.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-grey"></div><p class="tl-date">2023–2024 · Quiet period</p><p class="tl-title">Argentina available but invisible</p><p class="tl-desc">Throughout the high-inflation period in Argentina (200%+ in 2023), competitors (Binance, Bitget, Bitso, Lemon, local players) captured the bulk of new crypto users. Kraken was technically accessible but uncompetitive on fiat onramp, language, support, and brand presence.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-orange"></div><p class="tl-date">May 2025</p><p class="tl-title">Tokenized equities launched globally — explicit LatAm focus</p><p class="tl-desc">Kraken launches tokenized stocks for non-US users, with stated focus on Europe and LatAm. First signal that the new leadership thesis is to lead with differentiated product (TradFi-on-chain) rather than compete head-on with local exchanges on spot crypto.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-orange"></div><p class="tl-date">Jun 26, 2025</p><p class="tl-title">Krak app launch — global payments wedge</p><p class="tl-desc">Standalone app supporting 300+ assets, 110+ countries, peer-to-peer transfers via "Kraktags," stablecoin yield (4.1% on USDG, up to 10% on other assets), planned physical and virtual cards. Argentina is implicitly in scope. Krak runs in parallel to kraken.com — not a replacement, but a different product targeting different behavior (payments and savings vs. trading).</p></div>
+    <div class="tl-item"><div class="tl-dot dot-pink"></div><p class="tl-date">Jul 10, 2025</p><p class="tl-title">Local funding in ARS and MXN goes live + CNV VASP registration</p><p class="tl-desc">The pivot moment. ARS deposits and withdrawals via a local Argentine payment partner (PayAmigo). CUIT/CUIL required — proper KYC under Argentine identity infrastructure. Formal CNV VASP registration. Public framing: "global infrastructure with local relevance." This is the structural correction of the 2022 approach.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-pink"></div><p class="tl-date">Throughout 2025</p><p class="tl-title">Q3 2025: record revenue + LatAm called out in earnings</p><p class="tl-desc">Q3 revenue doubles YoY to $648M. Profit margins approach 28%. Local funding rails in AR and MX explicitly named as a Q3 milestone in the financial highlights. LatAm transitions from "neglected market" to "named growth lever."</p></div>
+    <div class="tl-item"><div class="tl-dot dot-blue"></div><p class="tl-date">Nov 25, 2025</p><p class="tl-title">Krak adds cashback Mastercard debit cards (UK/EU first)</p><p class="tl-desc">Real-time multi-asset payments with 1% cashback. UK and Europe go first under MiCA. The card path is set up to extend to LatAm next — same Krak app, same wallet, just card-enabled.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-blue"></div><p class="tl-date">May 4, 2026</p><p class="tl-title">Kraken formally "arrives" in Argentina (per local press)</p><p class="tl-desc">Argentine outlets describe May 4, 2026 as Kraken's official operational launch in Argentina — combining the CNV registration, the ARS rails, the Krak product layer, and full local language/support. The 2025 buildup is now a structurally complete proposition.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-blue"></div><p class="tl-date">2026 outlook</p><p class="tl-title">IPO filing + global expansion thesis</p><p class="tl-desc">Confidential S-1 filed with the SEC. Polymarket forecasts IPO by end of Q1 2026. Stated use of proceeds: emerging markets expansion (LatAm, APAC, MEA) and product diversification (prediction markets, tokenized equities via Backed Finance acquisition). LatAm is now part of the IPO story.</p></div>
+  </div>
+
+  <p class="section-label">Why the 2022 approach failed — and what 2025 fixes</p>
+  <div class="grid grid-1" style="margin-bottom: 24px;">
+    <div class="card" style="border-left: 3px solid #C15F3C;"><p style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">1 · Without local rails, the product was unusable in practice</p><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">An Argentine retail user trying to use Kraken pre-2025 faced a stack of friction points: no peso deposit option, mandatory international USD wires (subject to capital controls), no Argentine bank reference, no local customer service in Spanish for fiat issues. The 2025 fix is a local payment rail partner that handles the ARS-to-USD conversion inside the country, with CUIT/CUIL verification — the same KYC primitive used by local champions like Lemon and Ripio.</p></div>
+    <div class="card" style="border-left: 3px solid #C15F3C;"><p style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">2 · Without local registration, there was no legal certainty for users</p><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">Pre-CNV PSAV, Argentine users on Kraken were in a regulatory grey zone — usable, but not protected by local consumer law and not integrated with Argentina's capital regularization program (blanqueo). The 2024 PSAV framework and Kraken's 2025 registration close that gap and put Kraken on the same legal footing as Binance, Bitget, Bybit (via Luzpay) and WhiteBIT.</p></div>
+    <div class="card" style="border-left: 3px solid #C15F3C;"><p style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">3 · Without a differentiated product, there was no reason to switch</p><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">Even with local rails, competing head-on with Binance, Bitget and the local players on spot crypto would have been a losing race. The 2025 strategy adds Krak (payments + stablecoin yield + planned cards) and tokenized equities as wedges that local players don't have. The competitive frame becomes "crypto exchange + global payments app + TradFi-on-chain" — a product mix no purely local player can match.</p></div>
+    <div class="card" style="border-left: 3px solid #C15F3C;"><p style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">4 · Without a separate retail brand, the trader-only positioning limited TAM</p><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">Kraken's historical brand is "serious crypto exchange for serious traders" — a niche segment everywhere, but especially small in Argentina where the average user is hedging inflation with stablecoins, not running futures strategies. Krak as a parallel brand opens a different consumer segment (save, send, spend) without diluting Kraken's trader brand. The two products share infrastructure but address different audiences.</p></div>
+    <div class="card" style="border-left: 3px solid #C15F3C;"><p style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">5 · The IPO timeline forces seriousness</p><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">With a confidential S-1 filed and an early-2026 IPO target, Kraken cannot afford the loose, "we're available there in theory" posture of 2022. Public-market scrutiny on geographic expansion claims requires real registrations, real rails, real numbers. LatAm went from "nice to have" to "investor narrative checkpoint."</p></div>
+  </div>
+
+  <p class="section-label">The Kraken verdict</p>
+  <div class="card" style="margin-bottom: 12px;">
+    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">A mature exchange running its first proper LatAm playbook — late, but structurally sound.</p>
+    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.55; margin-bottom: 6px;">Kraken arrives at the regulated club in Argentina from a different starting point than Binance, Bitget or Bybit. It's older, has stronger US credibility, but historically had no LatAm presence to speak of. The 2025 rebuild does three things at once that the 2022 approach did none of: registers locally, partners locally for rails, and brings a differentiated product wedge (Krak + tokenized equities) that doesn't try to out-compete local incumbents on their own terms.</p>
+    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.55;">The unanswered question is execution speed. Binance has been local since September 2024. Bitget since 2024–25. Bybit (via Luzpay) since August 2024. Kraken's CNV registration came in mid-2025 — roughly a year late. Whether the differentiated product offsets that lag will define the next 12–18 months.</p>
+  </div>
+
+  <div class="insight"><strong>What this case teaches:</strong> the operating distance between "supporting a market from HQ" and "operating in a market" is enormous. Kraken's first attempt at LatAm was effectively a checkbox in product scope — a market that existed in the user table but not in the org chart. The 2025 reset treats LatAm as a market that requires local rails, local partners, local registration, and a differentiated product narrative. Every offshore exchange currently running a "we're global, we can serve them from anywhere" posture should read this case carefully — it's a preview of what eventually has to be built when the regulatory and competitive environment stops tolerating the easy version.</div>
+
+</section>
+
+<!-- ============ BINGX ============ -->
+<section data-section="bingx" class="section" role="tabpanel">
+
+  <div class="card-hero" style="margin-bottom: 24px;">
+    <p class="eyebrow">BingX · "Trading Latino" — the community-first, sports-heavy offshore play</p>
+    <p style="font-size: 17px; font-weight: 500; margin-bottom: 6px;">No PSAV registration. Deepest community roots in Argentina.</p>
+    <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.55;">Founded 2018. Originally known as a social trading and copy trading platform. By 2025 it's a full-spectrum exchange — spot, futures, copy trading, AI tools, Web3 — with 40M+ global users and one of the most developed Latin American strategies of any unregistered player. Not registered with Argentina's CNV PSAV. Operates from offshore jurisdictions. And yet: <strong>the most visited stand at LABITCONF 2024</strong>, sponsor of Scuderia Ferrari HP F1, Chelsea FC principal partner, and as of May 13, 2026 — Enzo Fernández is their first-ever Global Individual Ambassador. The paradox: the deepest cultural penetration in Argentina among unregistered exchanges, with the most ambitious sports portfolio in the space.</p>
+  </div>
+
+  <!-- Important note -->
+  <div class="note-warning" style="margin-bottom: 24px;">
+    <p style="font-size: 12px; font-weight: 500; color: #633806; margin-bottom: 4px;">Regulatory status in Argentina</p>
+    <p style="font-size: 12px; color: #854F0B; line-height: 1.55;">BingX is <strong>not registered</strong> in Argentina's CNV PSAV registry. It operates cross-border from offshore jurisdictions. Despite significant marketing spend, community building, and brand presence in Argentina, it has not formalized its relationship with Argentine regulators. This puts it in the same column as MEXC and KuCoin — high visibility, no paper trail.</p>
+  </div>
+
+  <p class="section-label">Real scale</p>
+  <div class="grid grid-auto-150" style="margin-bottom: 24px;">
+    <div class="stat-box"><p class="stat-label">Global users</p><p class="stat-value">40M+</p><p class="stat-detail">100% YoY growth in 2025</p></div>
+    <div class="stat-box"><p class="stat-label">Peak 24h volume</p><p class="stat-value">$26B</p><p class="stat-detail">2025 peak</p></div>
+    <div class="stat-box"><p class="stat-label">AI investment</p><p class="stat-value">$300M</p><p class="stat-detail">Committed to AI integration</p></div>
+    <div class="stat-box"><p class="stat-label">BingX Labs</p><p class="stat-value">$16M</p><p class="stat-detail">Invested in Web3 projects</p></div>
+  </div>
+
+  <p class="section-label">Pillars</p>
+  <div class="grid grid-auto-170" style="margin-bottom: 24px;">
+    <div class="pillar green"><p class="pillar-title">Trading Latino brand</p><p class="pillar-body">@BingXLatino on X (since Jun 2020) + Facebook BingXLatino. Tagline: "Trading Made Easy / BingX Oficial en América Latina." Oldest Latin-dedicated crypto social presence among global exchanges.</p></div>
+    <div class="pillar purple"><p class="pillar-title">Sports trinity</p><p class="pillar-body">Chelsea FC principal partner (2024+). Scuderia Ferrari HP F1 team partner (Jan 2026, multi-year). Enzo Fernández first individual Global Ambassador (May 2026).</p></div>
+    <div class="pillar orange"><p class="pillar-title">Community-first events</p><p class="pillar-body">LABITCONF (sponsor), Cripto Latin Fest, Descentralizar (3× via ONG Bitcoin Argentina), Crypto Trading Summit Buenos Aires.</p></div>
+    <div class="pillar pink"><p class="pillar-title">AI-native platform</p><p class="pillar-body">BingX AI Bingo + AI Master. 3M+ early AI users globally. Positioned as bridge between institutional-grade AI tools and LatAm retail traders.</p></div>
+    <div class="pillar amber"><p class="pillar-title">Local spokesperson</p><p class="pillar-body">A Global Brand Manager and Spokesperson based in the region handles all LatAm + European PR, events, and panels. Active in local press, community quotes, Infobae coverage.</p></div>
+  </div>
+
+  <p class="section-label">Timeline 2024 → May 2026</p>
+  <div class="timeline" style="margin-bottom: 24px;">
+    <div class="tl-item"><div class="tl-dot dot-grey"></div><p class="tl-date">Before 2024 · @BingXLatino</p><p class="tl-title">Oldest Spanish-language crypto exchange presence on X</p><p class="tl-desc">@BingXLatino joined X in June 2020 — years before competitors had dedicated Spanish handles. The account runs giveaways, quizzes (#BingXQuiz), trading education, and community activations. Facebook BingXLatino runs parallel. Tagline: "Trading Made Easy / BingX Oficial en América Latina."</p></div>
+    <div class="tl-item"><div class="tl-dot dot-green"></div><p class="tl-date">May 20, 2024</p><p class="tl-title">"ExpansionX" strategy — Argentina named as 2024 priority</p><p class="tl-desc">BingX announces "ExpansionX" on its 6th anniversary ("Amazing Six"). Brazil came first (Q1 2024), then Argentina, Turkey, and Vietnam. $13M USDT in promotional prizes. CPO Vivien Lin to Ámbito: "Argentina is one of the countries leading crypto adoption not just in the region but globally." 10M users globally at this point.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-green"></div><p class="tl-date">2024</p><p class="tl-title">Chelsea FC Principal Partner — debut in sports sponsorships</p><p class="tl-desc">BingX becomes Chelsea's principal partner. First entry into global sports sponsorship. Chelsea merchandise and signed products used as activation tools in LatAm events. Chelsea shirt distributed at LABITCONF.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-orange"></div><p class="tl-date">Sep 27–28, 2024</p><p class="tl-title">Crypto Trading Summit Buenos Aires — sponsor</p><p class="tl-desc">BingX sponsors the Buenos Aires summit. A local representative presents from the BingX team.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-orange"></div><p class="tl-date">Throughout 2024</p><p class="tl-title">3× Descentralizar events via ONG Bitcoin Argentina</p><p class="tl-desc">Partnership with ONG Bitcoin Argentina brings BingX into grassroots crypto education events held across multiple provinces. Not just Buenos Aires — the only international exchange running national provincial activations.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-pink"></div><p class="tl-date">Nov 1–2, 2024</p><p class="tl-title">LABITCONF 2024 — most visited stand</p><p class="tl-desc">10,000+ attendees at Costa Salguero. BingX stand: full LED wall + floor screens, interactive trivia game, Chelsea FC merchandise giveaways including autographed items. Per BingX's own PR: "undoubtedly the busiest stand at the event." Local spokesperson quote: "BingX is today one of the most used exchanges in Argentina — we know exactly the value that country has for us."</p></div>
+    <div class="tl-item"><div class="tl-dot dot-blue"></div><p class="tl-date">Aug 26, 2025</p><p class="tl-title">Cripto Latin Fest 2025 — AI keynote</p><p class="tl-desc">CPO Vivien Lin delivers keynote on BingX's AI strategy for LatAm at Cripto Latin Fest. AI assistant capabilities demoed: real-time market summaries, candlestick pattern recognition, portfolio risk analysis. LatAm crypto adoption cited at 15.2% (57.7M users). Argentina at ~20% — highest in region.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-blue"></div><p class="tl-date">Nov 7–8, 2025</p><p class="tl-title">LABITCONF 2025 — second year</p><p class="tl-desc">BingX returns as sponsor alongside Binance, Bitget, Exness, CoinEx, Ledn. Consistent presence for the second consecutive year at Argentina's flagship crypto conference.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-blue"></div><p class="tl-date">Oct 31, 2025 → Jan 1, 2026</p><p class="tl-title">Scuderia Ferrari HP — first-ever crypto exchange F1 partner</p><p class="tl-desc">Signed in Maranello on October 31, 2025. Effective January 1, 2026. Multi-year deal. BingX becomes the first crypto exchange to partner with Scuderia Ferrari HP. BingX branding on cars, suits, pit gear, and digital content. Ferrari: "We are pleased to welcome BingX as our first crypto exchange partner." Positioned around the 2026 FIA technical revolution.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-pink"></div><p class="tl-date">Dec 15, 2025</p><p class="tl-title">40M users milestone — "Beyond the Alpha" campaign</p><p class="tl-desc">100% YoY growth confirmed. Peak 24h volume $26B. $300M AI commitment. 3M+ users on BingX AI tools. BingX Labs $16M deployed into Web3. HQ operations now from Panama City.</p></div>
+    <div class="tl-item"><div class="tl-dot dot-pink"></div><p class="tl-date">May 13, 2026</p><p class="tl-title">Enzo Fernández — first individual Global Ambassador</p><p class="tl-desc">Announced from Panama City. Chelsea FC midfielder + Argentina national team. 2× world champion. BingX's first-ever individual athlete partnership. Builds on Chelsea renewal and Ferrari deal. Local spokesperson quote: "An important step in BingX's growth across Latin America. Enzo represents adaptability, intelligence, and control under pressure — qualities that reflect how BingX helps users navigate fast-moving markets." Positioned ahead of 2026 FIFA World Cup.</p></div>
+  </div>
+
+  <p class="section-label">The "Trading Latino" thesis — what BingX is actually building</p>
+  <div class="grid grid-1" style="margin-bottom: 24px;">
+    <div class="card" style="border-left: 3px solid #1D9E75;"><p style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">1 · Community before compliance — intentional, not accidental</p><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">@BingXLatino since 2020, ONG Bitcoin Argentina partnership, provincial events, Descentralizar. BingX built Latin American community years before most competitors had Spanish-language handles. The thesis: create genuine brand affinity with traders before (or instead of) regulatory registration. They may be betting that community depth is a moat even without a PSAV.</p></div>
+    <div class="card" style="border-left: 3px solid #1D9E75;"><p style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">2 · The sports portfolio is the most ambitious in the space</p><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">Chelsea FC (English Premier League) + Scuderia Ferrari HP (F1) + Enzo Fernández (individual, Argentina + Chelsea) is a sports stack no other exchange in this dossier has assembled. Bitget has LALIGA. Exness has LALIGA. Nexo has AFA. BingX has all three vectors — club, motorsport, and individual player — with the individual ambassador being explicitly Argentine. For a World Cup year with the 2026 tournament partly hosted in the US, Mexico, and Canada (the LatAm corridor), this portfolio has maximum timing leverage.</p></div>
+    <div class="card" style="border-left: 3px solid #1D9E75;"><p style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">3 · AI-native positioning is a differentiated wedge in LatAm</p><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">No other exchange in this dossier leads with AI as its primary positioning. BingX's $300M AI commitment, the Cripto Latin Fest AI keynote, the "institutional-grade analysis for retail traders" narrative — this resonates specifically in LatAm where retail traders are "autodidactas" (self-taught) and lack access to institutional research. The CPO's framing of AI as "protection against inflation and market volatility" is locally calibrated.</p></div>
+    <div class="card" style="border-left: 3px solid #1D9E75;"><p style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">4 · The paradox: best community, no registration</p><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">BingX has arguably built the deepest Argentine crypto community of any offshore exchange — yet has no PSAV. The question isn't whether the community is real (it is). The question is whether CNV enforcement will eventually require a choice: register or pull back. MEXC has the same exposure. KuCoin has the same exposure. But BingX has more invested in Argentina than either of them — which means the enforcement risk has higher stakes.</p></div>
+  </div>
+
+  <p class="section-label">PR strength and community assessment</p>
+  <div class="card" style="margin-bottom: 12px;">
+    <p style="font-size: 13px; font-weight: 500; margin-bottom: 8px;">The strongest offline community presence of any unregistered offshore exchange in Argentina.</p>
+    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 6px;"><strong style="font-weight:500;">PR coverage:</strong> Ámbito, Infobae, iProup, CryptoInforme, CriptoNoticias, TerritorioBitcoin — all covered the ExpansionX announcement and LABITCONF. The local spokesperson handles quotes directly to Argentine media. No other unregistered offshore exchange gets this level of named local press coverage.</p>
+    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 6px;"><strong style="font-weight:500;">Events footprint:</strong> 5 confirmed Argentina activations (Crypto Trading Summit, 3× Descentralizar, 2× LABITCONF). All with physical stands, merchandise, interactive activations. The LABITCONF 2024 LED stand was the most talked-about activation of the event.</p>
+    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 6px;"><strong style="font-weight:500;">Social handles:</strong> @BingXLatino on X since June 2020 — predates Binance's regional Spanish handle. Facebook BingXLatino. Weekly giveaways, quizzes, community activations. The longest-running Spanish crypto social presence of any global exchange.</p>
+    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;"><strong style="font-weight:500;">ONG Bitcoin Argentina partnership:</strong> The only international exchange with an ongoing relationship with Argentina's flagship Bitcoin NGO. Gives BingX access to Argentina's most engaged grassroots crypto community — Bitcoin-native, education-first, skeptical of corporate exchanges. That's a hard trust signal to fake.</p>
+  </div>
+
+  <div class="insight"><strong>The BingX verdict:</strong> the most culturally embedded offshore exchange in Argentina — and the most at risk from the gap between cultural depth and regulatory standing. Chelsea + Ferrari + Enzo + Descentralizar + LABITCONF is a formidable portfolio. But without a PSAV, all of it sits on a foundation that CNV can move on at any point. The 2026 World Cup timing gives BingX a window to monetize the sports stack before the regulatory picture forces a decision. Whether they use that window to register or simply to grow — and then face the same Kraken-style correction — is the defining strategic question for BingX in Argentina.</div>
+
+</section>
+
+<!-- Footer prompts -->
+<div class="prompts">
+  <p>Generated as a standalone analytical document. The interactive sendPrompt buttons in the Claude widget version are not available in this exported HTML.</p>
+  <p style="margin-top: 8px;">For follow-up analyses: Bitget vs MEXC head-to-head · Locals defensive playbook (Bitso/Lemon/Ripio) · VC investment ranking.</p>
+</div>
+
+</div>
+
+<script>
+const tabs = document.querySelectorAll('.tab-btn');
+const sections = document.querySelectorAll('.section');
+
+function setActiveTab(name) {
+  tabs.forEach(t => {
+    t.classList.toggle('active', t.dataset.tab === name);
+  });
+  sections.forEach(s => {
+    s.classList.toggle('active', s.dataset.section === name);
+  });
+  try {
+    if (window.location.hash !== '#' + name) {
+      history.replaceState(null, '', '#' + name);
+    }
+  } catch(e) {}
+  window.scrollTo(0, 0);
+}
+
+tabs.forEach(t => t.addEventListener('click', () => setActiveTab(t.dataset.tab)));
+
+const initial = (window.location.hash || '#overview').slice(1);
+if (['overview','mexc','exness','whitebit','bitget','bybit','nexo','binance','kraken','bingx'].includes(initial)) {
+  setActiveTab(initial);
+}
+</script>
+
+</body>
+</html>
